@@ -1,0 +1,5 @@
+charset,Shift_JIS
+type,ghost
+name,‚Ð‚Ì‚«
+directory,hinoki_cs2
+balloon.directory,cypress
