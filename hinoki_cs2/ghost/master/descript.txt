@@ -1,0 +1,12 @@
+charset,Shift_JIS
+name,‚Ğ‚Ì‚« "the ChopSticks"
+type,ghost
+craftman,Mikuzu
+craftmanw,…‹û
+id,hinoki_cs2
+craftmanurl,http://nft.hp.infoseek.co.jp/
+sakura.name,‚Ğ‚Ì‚«
+kero.name,‚¦‚±‚ã‚¤
+sstp.allowunspecifiedsend,1
+icon,hinoki.ico
+shiori,aya.dll

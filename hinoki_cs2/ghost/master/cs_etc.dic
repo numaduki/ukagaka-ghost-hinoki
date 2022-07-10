@@ -1,0 +1,558 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_etc/その他のイベントハンドラの辞書 ####
+
+
+
+
+OnTranslate
+{
+	if UseAnimation == 0
+	{
+		reference0 = REPLACE(reference0,"\s[100]","\s[0]")
+		reference0 = REPLACE(reference0,"\s[200]","\s[0]")
+		reference0 = REPLACE(reference0,"\s[300]","\s[-1]")
+		reference0 = REPLACE(reference0,"\s[400]","\s[-1]")
+	}
+	reference0 = REPLACE(reference0,"さんさん","さん")
+	reference0 = REPLACE(reference0,"たんさん","さん")
+	reference0 = REPLACE(reference0,"ちゃんさん","ちゃん")
+	reference0 = REPLACE(reference0,"さまさん","さま")
+	reference0 = REPLACE(reference0,"様さん","様")
+	reference0 = REPLACE(reference0,"くんさん","くん")
+	reference0 = REPLACE(reference0,"君さん","君")
+	reference0 = REPLACE(reference0,"ーー","ー")
+	reference0 = REPLACE(reference0,"っっ","っ")
+	reference0
+}
+
+
+
+
+OnUserInput
+{
+	if reference0 == "usernamefirst1"
+	{
+		if reference1 == ""
+		{
+			"\0\s[3]････\w6？\w6\1\s[10]････\w6恥ずかしがり屋さんか？\w9\0\s[5]\n\nえっと。\w6\nじゃ、\w6じゃあ一応、\w6%(username)さん、\w6って呼ばせてもらおうかな。\w6\1\s[10]\n\nま、\w6気が変わったらまた後で言ってくれや。\w6\0\s[6]\n\nうん。\w6\s[0]\nそれじゃ、\w6よろしく。\e"
+		}
+		elseif reference1 == "ひのき" || reference1 == "はしのひのき"
+		{
+			username = reference1
+			"\0\s[0]････\w6へ？\w9\s[2]\n\nわ、\w6私と同じ名前？！\w6\1\s[10]････\w6ホンマか？\w6\0\s[8]\n\n････\w6ま、\w6まあいいか。\w6\s[5]\nじゃ、\w6%(username)さん、\w6よろしく。\w6\1\s[10]\n\n････。\e"
+		}
+		else
+		{
+			username = reference1
+			"\0\s[6]%(username)。\w6\w6\n\nん。\w6%(username)さんね。\w9\n\s[5]じゃ、\w6どうぞよろしく。\w6\1\s[10]････\w6ふむ。\e"
+		}
+	}
+	elseif reference0 == "usernamefirst2"
+	{
+		if reference1 == ""
+		{
+			"\0\s[3]････。\w9\1\s[10]むう。\w9\n\nま、\w61度別れた身や。\w9\nいきなり名前を訊きなおすのもぶしつけやったかな。\w6\w6\0\s[4]\n\nそ、\w6そうなのかな････。\w6\w6\s[6]\nじゃ、\w6しばらくは%(username)さんって呼ばせてもらうよ。\w6\w6\s[0]\n\n････\w6これからもよろしくね。\e"
+		}
+		elseif reference1 == "ひのき" || reference1 == "はしのひのき"
+		{
+			username = reference1
+			"\0\s[0]････\w6へ？\w9\s[2]\n\nわ、\w6私と同じ名前？！\w6\1\s[10]････\w6ホンマか？\w6\0\s[8]\n\n････\w6ま、\w6まあいいか。\w6\s[5]\nじゃ、\w6%(username)さん、\w6よろしく。\w6\1\s[10]\n\n････。\e"
+		}
+		else
+		{
+			username = reference1
+			"\0\s[6]うん、\w6%(username)さん。\w9\n\s[5]じゃ、\w6これからもどうぞよろしくっ。\w6\1\s[10]････\w6どうかよろしくしてやってくれ。\w9\nひのきは本当は素直で優しい娘なんや････。\w6\0\s[7]\n\nちょ、\w6ちょっとー････。\e"
+		}
+	}
+	elseif reference0 == "usernameagain"
+	{
+		if reference1 == ""
+		{
+			"\0\s[3]？ ？ ？\w6\1\s[10]････\w6なにがしたいんや、\w6%(username)さん････。\w9\0\s[5]\n\nい、\w6\n今まで通りでいいのかなっ。\e"
+		}
+		elseif reference1 == "ひのき" || reference1 == "はしのひのき"
+		{
+			username = reference1
+			"\0\s[4]････\w6私と同じ名前････。\w6\1\s[10]････。\w6\0\s[3]\n\nじゃ、\w6これからは%(username)さんって呼ぶね。\w6\1\s[10]\n\n････。\e"
+		}
+		else
+		{
+			username = reference1
+			"\0\s[6]%(username)。\w6\w6\n\nん。\w6%(username)さんね。\w9\n\s[5]じゃ、\w6これからもよろしく。\w6\1\s[10]････\w6む。\e"
+		}
+	}
+}
+
+
+
+
+
+//
+//
+//
+//#### サーフィス復元 ####
+
+OnSurfaceRestore
+{
+	"\0\s[0]\1\s[10]\e"
+	"\0\s[6]\1\s[10]\e"
+}
+
+
+
+//
+//
+//
+//#### 最小化からの復帰 ####
+
+OnWindowStateRestore
+{
+	GetSeasonForSurface
+	--
+	"\1\s[10]\0\s[0]復帰っ。\e"
+	"\1\s[10]\0\s[6]ふう。\e"
+	"\1\s[10]\0\s[7]一言断ってから最小化しろっ！\1\s[10]落ち着けっ！\w9\0\s[3]\n\nだ、\w6だって、\w6\nいきなりあんな狭いところに突っ込まれると････。\e"
+}
+
+
+
+OnDisplayChange
+{
+	//変数にディスプレイ解像度と色深度に関する情報を取得
+	//使うかどうかは分からないがとりあえず保持しておく
+	displaybpp    = reference0
+	displaywidth  = reference1
+	displayheight = reference2
+}
+
+OnURLDropping
+{
+	"\0\s[6]'%(reference0)'、\nのデータをダウンロードしてるよ。\e"
+}
+
+OnURLDropFailure
+{
+	if reference1 == "artifical"
+	{
+		"\0\s[4]あ、\w6ダウンロードやめるの？\e"
+	}
+	elseif reference1 == "timeout"
+	{
+		"\0\s[4]お、\w6重過ぎ。\w6\1\s[10]中断するで。\w6\0\s[3]\n\n明日とかになればきっと軽くなってると思うよ････？\e"
+	}
+	else
+	{
+		"\0\s[4]なんか、\w6ダウンロード失敗しちゃった。\w6\1\s[10]むう。\e"
+	}
+}
+
+
+
+//
+//
+//
+//#### 先に**が存在していた ####
+
+
+
+OnEmbryoExist
+{
+	"\1\s[10]\0\s[0]えっと、\w6もうMATERIAか何かが起動してるけど････。\w6\s[3]\n\nよかったのかな。\w6私たち。\w6\n出てきちゃって。\w6\1\s[10]ま、\w6ええんやろ。\e"
+}
+
+OnNekodorifExist
+{
+	"\1\s[10]\0\s[2]あ。\w6\1\s[10]････\w6ま、\w6運命の皮肉やね。\e"
+	"\1\s[10]\0\s[2]あ。\w9\s[3]\n\nえ、\w6えと････\w6\w6\s[5]よ、\w6よろしくっ。\w9\1\s[10]････\w6いや、\w6よろしく言うんかい。\e"
+}
+
+
+
+//
+//
+//
+//#### スクリーンセーバー関係 ####
+
+OnScreenSaverStart
+{
+	"\1\s[10]ん。\w6\0\s[6]スクリーンセーバー起動っ。\e"
+}
+
+OnScreenSaverEnd
+{
+	"\0\s[6]････\w9\s[0]用事、\w6済みました？\e"
+}
+
+
+
+//
+//
+//
+//#### ファイルのDnD関係 ####
+
+OnDirectoryDrop
+{
+	"\0\s[2]え。\w6\s[3]\n\nディ、\w6ディレクトリは････\w6\nどうしていいのか、\w6わかんないよ。\w9\1\s[10]ファイルで渡してや。\w6\n1つずつな。\e"
+}
+
+OnFileDropping
+{
+	// なし
+}
+
+OnFileDrop2
+{
+	if reference1 == 1
+	{
+		_i = GetExtension(reference0)
+		_i = TOLOWER(_i)
+		if _i == "mp3" || _i == "wma" || _i == "wav" || _i == "ogg" || _i == "mid" || _i == "au"
+		{
+			DnDPlay(reference0)
+		}
+	}
+	else
+	{
+		_i = GetExtension(reference0)
+		_i = TOLOWER(_i)
+		if "wafxa.lnk"_in_"%(reference0)" || "wafxa.exe"_in_"%(reference0)"
+		{
+			"\1\s[10]む。\w6\n\n････\w6ちょっと仕様が変わったんや。\w9\n\_a[wafxa]wafxa\_a.exeを『co2』フォルダの中にコピーしてな。\w6\0\s[3]････\w6えこゅう？\x\w6\1\s[10]\c････\w6『soil』フォルダ、\w6開くか？\n\n\q[開く,OpenDirCO2]\n\q[今はやめとく,Cancel]\e"
+		}
+		elseif _i == "mp3" || _i == "wma" || _i == "wav" || _i == "ogg" || _i == "mid" || _i == "au"
+		{
+			KeyRelating = 1
+			TempPath = reference0
+			"\0\s[0]ん。\w6\s[6]\n私を1回クリックしてから、\nこの曲を登録したいファンクションキーを押してね。\e"
+		}
+		elseif _i == "exe" || _i == "lnk"
+		{
+			_i = FUNCTIONEX("co2\edittext.dll","list2.txt","GetLineNum")
+			_j = FUNCTIONEX("co2\edittext.dll","list2.txt","Append",_i,reference0)
+			"\0\s[5]登録したよ。\e"
+		}
+	}
+}
+
+OpenDirCO2
+{
+	"\1\j[file://co2]\w6\s[10]ん。\w6\nこのフォルダの中にwafxa.exeをコピーしてな。\w6\0\s[3]え、\w6ショートカットは使えないの？\w9\1\s[10]\n\nせやな、\w6wafxa.exeだけや。\w6\0\s[4]\n\n････\w6ね、\w6\nなんだかもう他のファイルがいろいろ入ってるけど････\w6\s[3]\nなんだろう？\w6\1\s[10]\n\nま、\w6気にせんといてくれ。\e"
+}
+
+
+
+//
+//
+//
+//#### キー #####
+
+
+
+OnKeyPress
+{
+	if reference1 == 0x5a // Z
+	{
+	CtrlWinamp("prev")
+	}
+	elseif reference1 == 0x58 // X
+	{
+	CtrlWinamp("play")
+	}
+	elseif reference1 == 0x43 // C
+	{
+	FUNCTIONEX("co2\mciaudior.dll","play")
+	CtrlWinamp("pause")
+	}
+	elseif reference1 == 0x56 //V
+	{
+	CtrlWinamp("stop")
+	}
+	elseif reference1 == 0x42 // B
+	{
+	CtrlWinamp("next")
+	}
+	elseif reference1 == 0x70 // F1
+	{
+	PressFunctionKey(0)
+	}
+	elseif reference1 == 0x71 // F2
+	{
+	PressFunctionKey(1)
+	}
+	elseif reference1 == 0x72 // F3
+	{
+	PressFunctionKey(2)
+	}
+	elseif reference1 == 0x73 // F4
+	{
+	PressFunctionKey(3)
+	}
+	elseif reference1 == 0x74 // F5
+	{
+	PressFunctionKey(4)
+	}
+	elseif reference1 == 0x75 // F6
+	{
+	PressFunctionKey(5)
+	}
+	elseif reference1 == 0x76 // F7
+	{
+	PressFunctionKey(6)
+	}
+	elseif reference1 == 0x77 // F8
+	{
+	PressFunctionKey(7)
+	}
+	elseif reference1 == 0x78 // F9
+	{
+	PressFunctionKey(8)
+	}
+	elseif reference1 == 0x79 // F10
+	{
+	PressFunctionKey(9)
+	}
+	elseif reference1 == 0x7a // F11
+	{
+	PressFunctionKey(10)
+	}
+	elseif reference1 == 0x7b // F12
+	{
+	PressFunctionKey(11)
+	}
+	elseif reference1 == 0x0d // Enter
+	{
+	OnAiTalk
+	}
+	elseif reference1 == 0x26 // Up
+	{
+	ShowConfigBalloon
+	}
+	elseif reference1 == 0x28 // Down
+	{
+	OpenKeroMenu
+	}
+	elseif reference1 == 0x25 // Left
+	{
+	ShowJukeBoxLineUp
+	}
+	elseif reference1 == 0x27 // Right
+	{
+	ShowBlnLauncher
+	}
+	elseif reference1 == 0x2e // Delete
+	{
+		FUNCTIONEX("co2\mciaudior.dll","play")
+	}
+	elseif reference1 == 0x20 // Space
+	{
+		// キーコードは合ってるはずなのに働かない････。
+	}
+	elseif reference1 == 0x41 // A
+	{
+		ShowGhostInfo
+	}
+	elseif reference1 == 0x13 // Pause/Break
+	{
+		if basewarename == "SSP"
+		{
+			"\1\![open,sliderinput,secretslider1,-1,10,0,10]\s[10]････。\w6\w6\n\nなんや。\w6これ。\w9\0\s[4]････\w6さあ。\w9\s[3]\nなんだかスライダーみたいなのが付いてるけど････。\e"
+		}
+	}
+	elseif reference1 == 0x1b // Esc
+	{
+		FUNCTIONEX("co2\mciaudior.dll","play")
+	}
+}
+
+
+
+//
+//
+//
+// #### 文字列加工イベントハンドラ ####
+// #### すべて引数つきで呼ぶ ####
+// #### 文5なら要らないものもあるかも ####
+
+
+// フルパスを入れて
+// 『(ファイル名).(拡張子)』形式で出す
+GetExtractFileName
+{
+	_i = _argv[0]
+	_length = MSTRLEN(_i)
+	_length = _length - 1
+	_j = 0
+	_start = 0
+	while _j != -1
+	{
+		_j = MSTRSTR(_i,"\",_start)
+		if _j != -1
+		{
+			_start = _j + 1
+		}
+	}
+	_length = _length - _start + 1
+	_k = MSUBSTR(_i,_start,_length)
+	_k
+}
+
+// フルパスを入れて
+// 拡張子なしファイル名を出す
+GetExtractFileName2
+{
+	_i = _argv[0]
+	_length = MSTRLEN(_i)
+	_length = _length - 1
+	_j = 0
+	_start = 0
+	while _j != -1
+	{
+		_j = MSTRSTR(_i,"\",_start)
+		if _j != -1
+		{
+			_start = _j + 1
+		}
+	}
+	_length = _length - _start + 1
+	_k = MSUBSTR(_i,_start,_length)
+	// ここまでGetExtractFileNameと同じ
+	_length = STRLEN(_k)
+	_length = _length - 1
+	_m = 0
+	_start = 0
+	while _m != -1
+	{
+		_m = STRSTR(_k,".",_start)
+		if _m != -1
+		{
+			_start = _m + 1
+		}
+	}
+	_length = _length - _start + 2
+	_start -= 1
+	_n = ERASE(_k,_start,_length)
+	_n
+}
+
+// フルパスを入れて
+// 拡張子を出す
+GetExtension
+{
+	_i = _argv[0]
+	_length = MSTRLEN(_i)
+	_length = _length - 1
+	_j = 0
+	_start = 0
+	while _j != -1
+	{
+		_j = MSTRSTR(_i,".",_start)
+		if _j != -1
+		{
+			_start = _j + 1
+		}
+	}
+	_length = _length - _start + 1
+	_k = MSUBSTR(_i,_start,_length)
+	_k
+}
+
+// 小数点を含む曲の長さを入れて
+// 一定のフォーマットで出す
+GetMusicLength
+{
+	_minute = FLOOR(_argv[0] / 60)
+	_second = FLOOR(_argv[0] - 60 * _minute)
+
+	_i = STRSTR("%(_minute)",".",0)
+	_len = STRLEN("%(_minute)") - _i
+	_minute = ERASE("%(_minute)",_i,_len)
+
+	_i = STRSTR("%(_second)",".",0)
+	_len = STRLEN("%(_second)") - _i
+	_second = ERASE("%(_second)",_i,_len)
+
+	if TOINT(_second) <= 9
+	{
+		CVSTR(_second)
+		_second = "0" + _second
+	}
+	"%(_minute):%(_second)"
+}
+
+
+//
+//
+//
+//#### 文字列リソース ####
+
+// 起動中の他のゴースト名 ####
+
+On_otherghostname
+{
+	// 現在起動中のゴーストのリストを作成する
+	ghostexlist = ""
+	_i = 0
+	while _i >= 0 {
+		_ghostname = NAMETOVALUE("reference%_i")
+		if _ghostname != "" {
+			if _i > 0; ghostexlist += ","
+			ghostexlist += _ghostname[0]
+			_i++
+		}
+		else; _i = -1
+	}
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+
+// SHIORI情報 ####
+
+On_name
+{
+	"AYA"
+}
+
+On_version
+{
+	GETSETTING(0)
+}
+
+On_craftman
+{
+	"umeici"
+}
+
+On_craftmanw
+{
+	"梅市"
+}
+
+// その他情報 ####
+
+On_username
+{
+	username
+}
+
+On_homeurl
+{
+	"http://nu.skr.jp/update/hinoki_cs2/"
+}
+
+// OwnedSSTP用uniqueid取得 ####
+
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+// hwnd
+
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}

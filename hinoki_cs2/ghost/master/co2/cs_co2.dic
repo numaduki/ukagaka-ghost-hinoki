@@ -1,0 +1,299 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_co2/二酸化炭素辞書 ####
+
+
+
+
+//
+//
+//
+// #### マシンの状態の表示 ####
+
+ShowMachineStatus
+{
+	_time = GETTIME
+	_osname = FUNCTIONEX("co2\saori_cpuid.dll","os.name","1")
+	_osver = FUNCTIONEX("co2\saori_cpuid.dll","os.version","1")
+	_osbuild = FUNCTIONEX("co2\saori_cpuid.dll","os.build","1")
+	_cpuname = FUNCTIONEX("co2\saori_cpuid.dll","cpu.name","1")
+	_cpuclock = FUNCTIONEX("co2\saori_cpuid.dll","cpu.clock","1")
+	_mmx = FUNCTIONEX("co2\saori_cpuid.dll","cpu.mmx","1") // MMX
+
+	_sse = FUNCTIONEX("co2\saori_cpuid.dll","cpu.sse","1") // SSE
+	_sse2 = FUNCTIONEX("co2\saori_cpuid.dll","cpu.sse2","1") // SSE2
+	_tdn = FUNCTIONEX("co2\saori_cpuid.dll","cpu.tdn","1") // 3DNow!
+	_mmxplus = FUNCTIONEX("co2\saori_cpuid.dll","cpu.mmx+","1") // MMX+
+	_htt = FUNCTIONEX("co2\saori_cpuid.dll","cpu.htt","1") // Hyper Threading Tecnology
+	_memoryload = 100 - memoryload
+
+	if _time[5] <= 9
+	{
+		_time[5] = "0" + _time[5]
+	}
+	if _time[6] <= 9
+	{
+		_time[6] = "0" + _time[6]
+	}
+
+	"\1\s[10]\b[2]\_q\n[half]\![*] %(_time[0])年%(_time[1])月%(_time[2])日(%(GetWeekDayE))%(GetJapanEvent)\n\![*] %(_time[4])時%(_time[5])分%(_time[6])秒\n\![*] 誕生花：%(GetBirthdayFlower)\n\![*] 累積ひのき時間：%(HinokiStandTime)min.\n\n[half]システム起動時間：%(GETTICKCOUNT)ms\n物理メモリ残量：%(_memoryload)パーセント(%(memoryavailphys)kb)\n\n[half]OS：%(_osname) v%(_osver) build%(_osbuild)\nCPU：%(_cpuname)\0\s[6]\n[half]\![*] about CPU\n\n[half]MMX：%(_mmx)\nSSE：%(_sse)\nSSE2：%(_sse2)\n3DNow!：%(_tdn)\nMMX+：%(_mmxplus)\nHyper Threading Tecnology：%(_htt)\_q\e"
+}
+
+//
+//
+//
+// #### ドラッグアンドドロッププレイ ####
+// #### 引数で渡したパスを再生するだけ ####
+
+DnDPlay
+{
+	FUNCTIONEX("co2\mciaudior.dll","load","%_argv[0]")
+	FUNCTIONEX("co2\mciaudior.dll","loop")
+	_k = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","Title","%(_argv[0])")
+	_l = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","Artist","%(_argv[0])")
+	_o = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","BitRate","%(_argv[0])")
+	_p = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","Duration","%(_argv[0])")
+	_q = GetExtension(_argv[0])
+	_q = TOUPPER(_q)
+	if _k == ""
+	{
+		_k = GetExtractFileName(_argv[0])
+	}
+	if _l == ""
+	{
+		_l = "ArtistName NotFound"
+	}
+	if _p != ""
+	{
+		_p = GetMusicLength(_p)
+	}
+	"\1\s[10]\b[2]\_q%(_l)\n%(_k)\n%(_p)/%(_o)kbps/%(_q)\_q\e"
+}
+
+
+//
+//
+//
+// #### Winamp操作 ####
+// #### 引数でplay/pause/next/prev/stopのいずれかを渡す ####
+// #### 本当はwafxa.exeを入れてるか確かめるべき ####
+
+CtrlWinamp
+{
+	if _argv[0] == "play"
+	{
+		FUNCTIONEX("co2\exec.dll","norm","wafxa.exe","/p")
+	}
+	elseif _argv[0] == "pause"
+	{
+		FUNCTIONEX("co2\exec.dll","norm","wafxa.exe","/a")
+	}
+	elseif _argv[0] == "next"
+	{
+		FUNCTIONEX("co2\exec.dll","norm","wafxa.exe","/n")
+	}
+	elseif _argv[0] == "prev"
+	{
+		FUNCTIONEX("co2\exec.dll","norm","wafxa.exe","/v")
+	}
+	elseif _argv[0] == "stop"
+	{
+		FUNCTIONEX("co2\exec.dll","norm","wafxa.exe","/s")
+	}
+	else
+	{
+		FUNCTIONEX("co2\exec.dll","norm","wafxa.exe")
+	}
+}
+
+//
+//
+//
+// #### ファンクションキーを押した時の反応 ####
+// #### KeyRelatingが1の時は押したキーに曲登録、それ以外は曲再生 ####
+
+PressFunctionKey
+{
+	if KeyRelating == 1
+	{
+		KeyRelating = 0
+		_i = TONUMBER2(_argv[0])
+		_j = _i + 1
+		FUNCTIONEX("co2\edittext.dll","list.txt","Replace","%(_i)","%(TempPath)")
+		FUNCTIONEX("co2\edittext.dll","list.txt","Save")
+		ERASEVARIABLE("TempPath")
+		--
+		"\0\s[5]F%(_j)キーに登録したよー。\e"
+	}
+	else
+	{
+		_j = FUNCTIONEX("co2\edittext.dll","list.txt","GetLine","%(_argv[0])")
+		_i = LIB.VALUE("Value0")
+		if _i != ""
+		{
+			FUNCTIONEX("co2\mciaudior.dll","load","%(_i)")
+			FUNCTIONEX("co2\mciaudior.dll","loop")
+			_k = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","Title","%(_i)")
+			_l = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","Artist","%(_i)")
+			_o = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","BitRate","%(_i)")
+			_p = FUNCTIONEX("co2\exec.dll","s_hide","gerbera.exe","Duration","%(_i)")
+			_q = GetExtension(_i)
+			_q = TOUPPER(_q)
+			if _k == ""
+			{
+				_k = GetExtractFileName(_i)
+			}
+			if _l == ""
+			{
+				_l = "ArtistName NotFound"
+			}
+			if _p != ""
+			{
+				_p = GetMusicLength(_p)
+			}
+			"\0\s[6]\_q%(_l)\n%(_k)\n%(_p)/%(_o)kbps/%(_q)\_q\e"
+		}
+		else
+		{
+			_m = TONUMBER2(_argv[0])
+			_n = _m + 1
+			"\0\s[0]F%(_n)キー、\w6未登録。\e"
+		}
+	}
+}
+
+//
+//
+//
+// #### ジュークボックス表示 ####
+
+ShowJukeBoxLineUp
+{
+	KeyRelating = 0
+	_i = 0
+	_str = ""
+	while _i < 12
+	{
+		_k = FUNCTIONEX("co2\edittext.dll","list.txt","GetLine","%(_i)")
+		_j = valueex0
+		if _k == -1 || _j == ""
+		{
+			_j = "-"
+		}
+		else
+		{
+			_j = GetExtractFileName(_j)
+		}
+		_i = _i + 1
+		_str = _str + "\_a[jukebox%(_i)]F%(_i)\_a. " + _j + "\n"
+	}
+	"\0\s[6]\b[2]\![set,autoscroll,disable]\_q\n[half]ひのきジュークボックスの中身ですっ。\n\n[half]%(_str)\n[half]削除はF1～F12のアンカーをクリック\n\n[half]\![*] \q[プレイリストをクリア,CleanPlayList]\n\n[half]\![*] \q[閉じる,Cancel]\_q\e"
+}
+
+CleanPlayList
+{
+	"\1\s[10]ジュークボックスの登録全消去。\w6\nええか？\w6\n\n\q[全削除続行,CleanPlayList2]\n\q[やめる,Cancel]\e"
+}
+
+CleanPlayList2
+{
+	_ignore = FCOPY("co2\leaves\list.txt","co2")
+	"\1\s[10]クリア。\e"
+}
+//
+//
+//
+// #### ランチャー表示 ####
+
+ShowBlnLauncher
+{
+	_l = FUNCTIONEX("co2\edittext.dll","list2.txt","GetLineNum")
+	_i = 0
+	_str = ""
+	while _i < _l
+	{
+		_k = FUNCTIONEX("co2\edittext.dll","list2.txt","GetLine","%(_i)")
+		_j = LIB.VALUE("Value0")
+		if _k == -1 || _j == ""
+		{
+			_j = "-"
+		}
+		else
+		{
+			_j = "\_a[bootapplinor%(_i)]" + GetExtractFileName2(_j) + "\_a"
+		}
+		_str = _str + "\_a[eraseapplipath%(_i)]d\_a / %(_j)\n"
+		_i = _i + 1
+	}
+	"\0\s[6]\b[2]\![set,autoscroll,disable]\_qひのきランチャーの中身ですっ。\_q\n\n[half]\![*] \q[閉じる,Cancel] / \![*] \q[リストをクリア,CleanAppliList]\n\n[half]%(_str)\n[half]\_qd - 登録削除\n\n\n\_q\e"
+}
+
+CleanAppliList
+{
+	"\1\s[10]ランチャーの登録全消去。\w6\nええか？\w6\n\n\q[全削除続行,CleanAppliList2]\n\q[やめる,Cancel]\e"
+}
+
+CleanAppliList2
+{
+	_ignore = FCOPY("co2\leaves\list2.txt","co2")
+	"\1\s[10]クリア。\e"
+}
+
+
+
+
+
+
+//
+//
+//
+//#### アプリケーションによくあるバージョン情報みたいなもの ####
+
+ShowGhostInfo
+{
+		"\0\s[6]\b[2]\_qひのき %(CHR(34))the ChopSticks%(CHR(34))\ncopyr.2003-2004 水屑\nwww：\_q\q[http://www3.to/nft/,http://www3.to/nft/]\n/
+		\n/
+		\_qユーザー名：%(On_username)\_q\n/
+		\n/
+		\_q使用素材の情報（作者敬称略）\_q\n/
+		\n/
+		\_qShell『Round And Round』\n/
+		名称：割り箸\n/
+		作者：一哉那順（改変は水屑による）\n/
+		www：\_q\q[http://ichika-najun.hp.infoseek.co.jp/,http://ichika-najun.hp.infoseek.co.jp/]\n/
+		\n/
+		\_qSHIORI『汎用DLL「文」』\n/
+		名称：%(On_name) ver%(On_version)\n/
+		作者：%(On_craftman)\n/
+		www：\_q\q[http://members.jcom.home.ne.jp/umeici/,http://members.jcom.home.ne.jp/umeici/]\n/
+		\n/
+		\_qSAORI『edittext.dll』\n/
+		名称：edittext.dll ver1.1.1\n/
+		作者：SatisKia\n/
+		www：\_q\q[http://www5d.biglobe.ne.jp/~satis/,http://www5d.biglobe.ne.jp/~satis/]\n/
+		\n/
+		\_qSAORI『exec.dll』\n/
+		名称：exec.dll ver1.4\n/
+		作者：りゅう\n/
+		www：\_q\q[http://www10.plala.or.jp/sryu/,http://www10.plala.or.jp/sryu/]\n/
+		\n/
+		\_qSAORI『MCIAudioR』\n/
+		名称：MCIAudioR construction22\n/
+		作者：umeici\n/
+		www：\_q\q[http://members.jcom.home.ne.jp/umeici/,http://members.jcom.home.ne.jp/umeici/]\n/
+		\n/
+		\_qSAORI『saori_cpuid.dll』\n/
+		名称：saori_cpuid.dll ver1.0.5\n/
+		作者：七瀬いーうぃ\n/
+		www：\_q\q[http://www.himawari-c.com/,http://www.himawari-c.com/]\n/
+		\n\q[閉じる,CloseGhostInfo]\n/
+		\e"
+}
+
+CloseGhostInfo
+{
+	"\0\s[5]たくさんの要素でできているんだね。\w6\1\s[10]せやな。\e"
+	"\0\s[0]まさに光合成のための\n二酸化炭素みたいな存在だよね。\w9\s[5]\n\n感謝しなくちゃ。\w9\1\s[10]････\w9いや。\w6\n褒め言葉に聞こえへんぞ。\e"
+	"\0\s[4]なんか、\w6たくさんあるね。\w6\1\s[10]せやな。\w9\0\s[3]\n\n私たちが普段通りにしていても、\w6みんなちゃんと仕事してくれてるんだ。\w9\n\n････\w6すごいね。\w9\1\s[10]\n\nまったくや。\e"
+}

@@ -1,0 +1,155 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_config/設定についての辞書 ####
+
+
+
+
+ShowConfigBalloon
+{
+	"\0\s[0]\_qコンフィグだよ。\_q"
+	"\0\s[5]\_q設定。\_q"
+	"\0\s[6]\_qお好み設定っ。\_q"
+	--
+	"\n\n[half]/
+	\_q見切れ反応(\_q\q[ON,ConfigMikireOn]/\q[OFF,ConfigMikireOff])\n/
+	\_q重なり反応(\_q\q[ON,ConfigKasanariOn]/\q[OFF,ConfigKasanariOff])\n/
+	\_q常に手前にいる(\_q\q[ON,ConfigStayonOn]/\q[OFF,ConfigStayonOff])\n/
+	\_q消滅ボタン(\_q\q[ON,ConfigVanishButtonOn]/\q[OFF,ConfigVanishButtonOff])\n/
+	\_qメニュー言語(\_q\q[JA,ConfigMenuLangJa]/\q[EN,ConfigMenuLangEn]/\q[RAND,ConfigMenuLangRand])\n/
+	\_qアニメーション(\_q\q[ON,ConfigAnimationOn]/\q[OFF,ConfigAnimationOff])\n/
+	\_q？(\_q\q[ON,ConfigShortcutEndingOn]/\q[OFF,ConfigShortcutEndingOff])\n/
+	\n[half]/
+	\q[設定終わり,FinishConfig]"
+	--
+	if RAND(100) < 25
+	{
+		"\w6\1\s[10]終わったら『設定終わり』をクリック。\e"
+	}
+	else
+	{
+		"\e"
+	}
+}
+
+FinishConfig
+{
+	"\0\s[6]ん、\w6設定完了ね。\e"
+	"\0\s[5]ん、\w6設定おわりっ。\e"
+}
+
+// 見切れ
+
+ConfigMikireOn
+{
+	MikireReaction = 1
+	"\0\s[0]ん。\w6\n見切れてたら、\w6声かけるね。\e"
+}
+
+ConfigMikireOff
+{
+	MikireReaction = 0
+	"\0\s[5]じゃ、\w6見切れててものんびりしとくよ。\e"
+}
+
+
+
+// 重なり
+
+ConfigKasanariOn
+{
+	KasanariReaction = 1
+	"\0\s[0]じゃ、\w6\s[5]\nえこゅうと重なってたら、\w6鬱陶しいって言うね。\w6\1\s[10]なんやねん。\e"
+}
+
+ConfigKasanariOff
+{
+	KasanariReaction = 0
+	"\0\s[5]うん。\w6\n重なっててもなんとか我慢するね。\w6\1\s[10]････\w6そんなに嫌なんか。\e"
+}
+
+
+// 消滅ボタン
+
+ConfigVanishButtonOn
+{
+	VanishButton = 1
+	"\1\s[10]････\w6ん。\w9\nなんや、\w6消滅ボタン消しとるやないか。\w6\nほら、\w6表示せえ。\w6\0\s[3]え････。"
+	--
+	"\w6\nや、\w6やだよ････。"
+	"\w6\nだ、\w6だって････。"
+	--
+	"\w9\1\s[10]\n\n････\w9ひのき。\w6あかんで。\w6\0\s[9]\n\nでも････。\e"
+}
+
+ConfigVanishButtonOff
+{
+	VanishButton = 0
+	"\0\s[5]ん、\w6非表示にするとやっぱりすっきりするよねっ。\w6\1\s[10]････。\e"
+	"\0\s[5]ん、\w6やっぱりない方がデザイン的にいい感じだよね。\w9\1\s[10]････\w6むう。\e"
+}
+
+
+
+
+ConfigMenuLangJa
+{
+	RButtonMenuLang = "Ja"
+	RButtonMenuLangRandom = 0
+	"\0\s[6]ん。\w6日本語ね。\e"
+}
+
+ConfigMenuLangEn
+{
+	RButtonMenuLang = "En"
+	RButtonMenuLangRandom = 0
+	"\0\s[5]英語で表示するねっ。\e"
+}
+
+ConfigMenuLangRand
+{
+	RButtonMenuLangRandom = 1
+	"\0\s[6]････\w6じゃ、\w6\s[5]私がその時の気分で選ぶね。\e"
+}
+
+
+
+ConfigAnimationOn
+{
+	UseAnimation = 1
+	"\0\s[6]うん。\w6\s[5]\n始まりと終わりだけでもカッコつけるね。\w6\1\s[10]････\w6そう言うなよ。\e"
+}
+
+ConfigAnimationOff
+{
+	UseAnimation = 0
+	"\0\s[3]････\w6じゃ、\w6フツーに出てくるね。\e"
+}
+
+
+
+ConfigShortcutEndingOn
+{
+	ShortcutEnding = 1
+	"\0\s[3]････\w6ん。\w6\1\s[10]････。\e"
+}
+
+ConfigShortcutEndingOff
+{
+	ShortcutEnding = 0
+	"\0\s[5]うん。\e"
+}
+
+
+
+ConfigStayonOn
+{
+	"\![set,windowstate,stayontop]\0\s[0]ん。\w6\s[5]いつも手前の方にいるね。\e"
+}
+
+
+ConfigStayonOff
+{
+	"\![set,windowstate,!stayontop]\0\s[6]じゃ、\w6\nウィンドウで隠れても出てこないからねっ。\e"
+}

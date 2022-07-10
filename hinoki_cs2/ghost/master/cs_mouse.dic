@@ -1,0 +1,300 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_mouse/マウス反応辞書 ####
+
+
+
+
+//
+//
+//
+//#### 撫で反応 ####
+
+OnMouseMove
+{
+	if reference3 == 0
+	{
+		MouseMoveSakura
+	}
+	else
+	{
+		MouseMoveKero
+	}
+}
+
+MouseMoveSakura
+{
+	if reference4 != ""
+	{
+		stroke++
+		if stroke >= 128
+		{
+			if reference4 == "Bust"
+			{
+				"\0\s[3]････。\e"
+				"\0\s[4]････\w6ちょ、\w6ちょっとー････。\w9\1\s[10]通やね。\e"
+				"\0\s[3]････\w6大きくても小さくても、\w6\n女の子の胸なんですよ？\w9\1\s[10]だからやないか。\w6\w6\0\s[4]\n\n････。\e"
+				"\0\s[4]････\w6借り物なんですよ？\w9\s[3]\n\n自分が誰かに身体を貸してるとしたら、\w6\n恥ずかしいトコとかさわってほしくはないでしょ？\w9\1\s[10]････\w6何気に凄いこと言うとるな。\e"
+			}
+			elseif reference4 == "Ant"
+			{
+				"\0\s[5]これで、\w6ピピピ電波を受信するんです。\w6\1\s[10]････\w6何やねん。\w6\nピピピ電波って････。\e"
+				"\0\s[6]ラジオが聞けますっ。\w6\1\s[10]････\w6%(username)さんが本気にするで。\e"
+				"\0\s[5]どんなに寝かせようって思っても、\w6\n立っちゃうんです。\w9\1\s[10]････。\e"
+			}
+			elseif reference4 == "Head"
+			{
+				"\0\s[5]あ、\w6褒めてくれるの？\e"
+				"\0\s[5]髪の毛には自信ありますっ。\w6\1\s[10]冬に全部抜けるけど、\w6春にはまた出てくるで。\w6\0\s[4]\n\n････。\e"
+				"\0\s[5]えこゅう、\w6褒められちゃったよ。\w6\1\s[10]いや････\w9褒められるようなことしてへんやないか。\e"
+				"\0\s[6]････。\e"
+			}
+			elseif reference4 == "Face"
+			{
+				"\0\s[5]あ、\w6お肌には自信ありますよっ？\w6\1\s[10]ひのきやしな。\w6\0\s[0]\n\n････？\e"
+				"\0\s[4]く、\w6くすぐったいよー････。\e"
+				"\0\s[5]すべすべでしょ？\w6\1\s[10]あくまで借りものやけどな。\w6\0\s[4]\n\nそれは言わないで････。\e"
+				"\0\s[5]私が憑いてれば、\w6この女の子は肌荒れ知らずっ。\w6\1\s[10]ま、\w6借りとるお礼っちゅうかな。\e"
+			}
+		stroke = 0
+		}
+	}
+	else
+	{
+		// 定義された部位はどこも撫でられていない
+		stroke = 0
+	}
+}
+
+MouseMoveKero
+{
+	stroke++
+	if stroke >= 256
+	{
+		"\1\s[10]････\w6何や。\e"
+		"\1\s[10]むう。\e"
+		"\1\s[10]････。\e"
+		stroke = 0
+	}
+}
+
+
+//
+//
+//
+//#### つつかれ反応（シングルクリック） ####
+
+OnMouseClick
+{
+	if reference3 == 0
+	{
+		MouseClickSakura
+	}
+	else
+	{
+		MouseClickKero
+	}
+}
+
+MouseClickSakura
+{
+	if reference5 == 0
+	{
+		if reference4 == "Ant"
+		{
+			StartCommunicate
+		}
+		elseif reference4 == "RibbonL"
+		{
+			ShowMachineStatus
+		}
+		elseif reference4 == "RibbonR"
+		{
+			ShowConfigBalloon
+		}
+		elseif reference4 == "Bust"
+		{
+			"\0\s[3]\w9････\w9%(username)さん････。\e"
+			"\0\s[3]\w9････\w9やめて。\w6\w6\n\n%(username)さんの顔、\w6\nまっすぐ見れなくなっちゃうよ････。\e"
+			"\0\s[3]\w9････\w9触らないで････。\e"
+			"\0\s[3]\w9････\w9触ら、\w9ないで････。\e"
+			"\0\s[9]っ\w9････\w9\s[3]。\e"
+			"\0\s[3]やっ、\w9やだよ････。\w9\n触んないで････。\e"
+			"\0\s[9]\w6嫌････。\e"
+			"\0\s[3]････\w9怖いよ、\w6%(username)さん････。\w9\1\s[10]････。\e"
+			"\0\s[3]････。\w6\w6\1\s[10]････\w6%(username)さんが、\w6ひのきを好いとる証拠やねん。\w9\n男は、\w6嫌いな女の乳は揉めへん生き物やで････。\w9\0\s[9]\n\n････\w6そんなの････。\e"
+		}
+	}
+	elseif reference5 == 1 && RButtonMenuLangRandom == 1
+	{
+		if RAND < 50
+		{
+			RButtonMenuLang = "En"
+		}
+		else
+		{
+			RButtonMenuLang = "Ja"
+		}
+	}
+}
+
+MouseClickKero
+{
+	if reference5 == 1 && RButtonMenuLangRandom == 1
+	{
+		if RAND < 50
+		{
+			RButtonMenuLang = "En"
+		}
+		else
+		{
+			RButtonMenuLang = "Ja"
+		}
+	}
+	else
+	{
+		if reference4 == "A" && reference5 != 0 && reference5 != 1
+		{
+			CtrlWinamp("play")
+		}
+		elseif reference4 == "B" && reference5 != 0 && reference5 != 1
+		{
+			CtrlWinamp("stop")
+		}
+		elseif reference4 == "C" && reference5 != 0 && reference5 != 1
+		{
+			CtrlWinamp("stop")
+		}
+		elseif reference5 != 0 && reference5 != 1
+		{
+			CtrlWinamp("pause")
+		}
+	}
+
+}
+
+
+//
+//
+//
+//#### つつかれ反応（ダブルクリック） ####
+
+OnMouseDoubleClick
+{
+	if reference3 == 0
+	{
+		MouseDoubleClickSakura
+	}
+	else
+	{
+		MouseDoubleClickKero
+	}
+}
+
+MouseDoubleClickSakura
+{
+	if reference4 == "Head"
+	{
+		"\0\s[4]た、\w6叩かないで････。\e"
+		"\0\s[4]い、\w6痛いってばっ。\e"
+		"\0\s[3]･････\w6悪いことしたなら、\w6謝るから。\w9\nいきなり叩かないでよ････。\w9\1\s[10]････。\e"
+		"\0\s[4]･････\w6やめてよう････。\e"
+		"\0\s[4]う、\w6うう。\w9\1\s[10]････\w6最近、\w6目に余る行動が多かったせいや。\w9\0\n\n･････\w6私が何したってゆうのー････。\e"
+	}
+	elseif reference4 == "Face"
+	{
+		"\0\s[4]ててて････\w9\w6って、\w6\s[7]\n\nいきなりぶたなくってもいいでしょ？！\w6\1\s[10]落ち着けっ！\e"
+		"\0\s[7]ぷ、\w6ぷにぷにしないでっ！\w9\1\s[10]････\w6%(username)さんの気持ちはわかるけどな。\w9\0\s[4]\n\n････。\e"
+		"\0\s[7]顔を突くなっ！\1\s[10]落ち着けっ！\e"
+		"\0\s[7]今度%(username)さんが油断したら、\w6\_a[hoppeta]振り向いた時にほっぺたぷにー\_aってやってやるんだからっ････。\w6\1\s[10]････。\e"
+	}
+	else
+	{
+		OpenMenu
+	}
+}
+
+MouseDoubleClickKero
+{
+	if reference4 == "A"
+	{
+		OpenKeroMenu
+	}
+	else
+	{
+		"\1\s[10]････。\e"
+		"\1\s[10]････\w6つつかんといてや。\e"
+		"\1\s[10]････\w6む。\e"
+		"\0\s[3]ああっ、\w6\w6\n\nえこゅうは危険だからあまりつつかない方が････。\w9\1\s[10]････\w6何やねん。\e"
+		"\0\s[3]ああー。\w6\w6\n\nえこゅうをつつくと、\w6養分取られちゃうよ････。\w9\1\s[10]････。\e"
+	}
+}
+
+
+//
+//
+//
+//#### めくられ反応（ホイール回転） ####
+
+OnMouseWheel
+{
+	if reference3 == 0
+	{
+		MouseWheelSakura
+	}
+	else
+	{
+		MouseWheelKero
+	}
+}
+
+MouseWheelSakura
+{
+	if reference4 == "Skirt" && reference2 > 0
+	{
+		"\0\s[7]････\w6今、\w6スカートめくろうとしたでしょ！\e"
+		"\0\s[4]････\w9やー\w3めー\w3てー。\e"
+		"\0\s[2]わ、ちょっ！\w3\s[4]\n\n････\w9\w6あ、\w6危なかったー････。\w9\1\s[10]････。\e"
+	}
+	elseif reference2 > 0
+	{
+		ShowBlnLauncher
+//		ShowGhostInfo
+	}
+	else
+	{
+		if reference2 < 0 && aitalkinterval == 40
+		{
+			aitalkinterval = 180
+			"\0\s[0]普通。\e"
+		}
+		elseif reference2 < 0 && aitalkinterval == 180
+		{
+			aitalkinterval = 300
+			"\0\s[3]････少なめ。\e"
+		}
+		elseif reference2 < 0 && aitalkinterval == 300
+		{
+			aitalkinterval = 0
+			"\0\s[6]････\w6黙っとくね。\e"
+		}
+		elseif reference2 < 0 && aitalkinterval == 0
+		{
+			aitalkinterval = 40
+			"\0\s[5]多めっ。\e"
+		}
+	}
+}
+
+MouseWheelKero
+{
+	if reference2 > 0
+	{
+		CtrlWinamp("prev")
+	}
+	elseif reference2 < 0
+	{
+		CtrlWinamp("next")
+	}
+}

@@ -1,0 +1,22 @@
+//
+//
+// #### Ç–ÇÃÇ´ "the ChopSticks" ####
+// #### cs_define/íËã`é´èë ####
+
+
+
+
+#globaldefine	\e:	\e:chain=HinokiChainTalk";ChainID="
+#globaldefine	\s[0]	\s[%(HINO)0]
+#globaldefine	\s[1]	\s[%(HINO)1]
+#globaldefine	\s[2]	\s[%(HINO)2]
+#globaldefine	\s[3]	\s[%(HINO)3]
+#globaldefine	\s[4]	\s[%(HINO)4]
+#globaldefine	\s[5]	\s[%(HINO)5]
+#globaldefine	\s[6]	\s[%(HINO)6]
+#globaldefine	\s[7]	\s[%(HINO)7]
+#globaldefine	\s[8]	\s[%(HINO)8]
+#globaldefine	\s[9]	\s[%(HINO)9]
+#globaldefine	\s[10]	\s[%(ECO)]
+#globaldefine	\s[100]	\s[10%(HINO)]
+#globaldefine	\s[200]	\s[20%(HINO)]

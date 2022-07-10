@@ -1,0 +1,81 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_nar/NAR操作に関する辞書 ####
+
+
+
+
+//
+//
+//
+//#### インストール関連 ####
+
+OnInstallBegin
+{
+	"\0\s[6]NARファイル蒔くよー。\e"
+}
+
+OnInstallComplete
+{
+	if reference0 == "shell"
+	{
+		reference0 = "シェル"
+	}
+	elseif reference0 == "ghost"
+	{
+		reference0 = "ゴースト"
+	}
+	elseif reference0 == "balloon"
+	{
+		reference0 = "バルーン"
+	}
+	elseif reference0 == "plugin"
+	{
+		reference0 = "プラグイン"
+	}
+	"\0\s[5]『%(reference1)』が出てきましたっ。\w6\1\s[10]種別は%(reference0)やね。\e"
+	"\0\s[5]%(reference0)の『%(reference1)』、\w6満開ですっ！\w6\1\s[10]やったね！\e"
+}
+
+OnInstallFailure
+{
+	"\0\s[3]芽が出ない････。\w6\1\s[10]なんでやろな。\e"
+}
+
+OnInstallRefuse // 拒否
+{
+	"\0\s[3]私、\w6このNAR、\w6よくわかんない････。\w6\1\s[10]%(reference0)に渡してみ。\e"
+}
+
+
+
+
+//
+//
+//
+//#### ファイル作成関連 ####
+
+OnUpdatedataCreating
+{
+	"\1\s[10]む、\w6ネットワーク更新用ファイルか。\w6\nおつかれさん。\e"
+	"\1\s[10]アップデートデータファイル作るで。\e"
+}
+
+OnUpdatedataCreated
+{
+	"\1\s[10]完了。\e"
+}
+
+OnNarCreating
+{
+	"\0\s[5]このファイル、\w6NARにしますね。\e"
+	"\0\s[5]このファイル、\w6NARにするね。\e"
+}
+
+OnNarCreated
+{
+	"\0\s[6]恋人のように、\w6\n愛情を傾けてもらえますように････。\e"
+	"\0\s[6]新しい場所でも、\w6\n誇りを持って咲けますように････。\e"
+	"\0\s[6]芽を出せる時が来るまで、\w6\nこの中で待っててね････。\e"
+}

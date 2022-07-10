@@ -1,0 +1,36 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### aya.txt/使用辞書とログ設定ファイル ####
+
+// 多すぎ
+
+// 使用辞書
+dic, cs_shiori3.dic
+dic, cs_define.dic
+dic, cs_appli.dic
+dic, cs_blnmenu.dic
+dic, cs_boot.dic
+dic, cs_cominike.dic
+dic, cs_config.dic
+dic, cs_end.dic
+dic, cs_etc.dic
+dic, cs_mouse.dic
+dic, cs_nar.dic
+dic, cs_popupmenu.dic
+dic, cs_switch.dic
+dic, cs_talk.dic
+dic, cs_time.dic
+dic, cs_utility.dic
+dic, cs_vanish.dic
+dic, cs_word.dic
+dic, o2\cs_normaltalk1.dic
+dic, o2\cs_normaltalk2.dic
+dic, o2\cs_seasontalk1.dic
+dic, co2\cs_co2.dic
+
+charset, Shift-JIS
+msglang, japanese
+// log, executelog.txt
+iolog, on
+fncdepth, 32

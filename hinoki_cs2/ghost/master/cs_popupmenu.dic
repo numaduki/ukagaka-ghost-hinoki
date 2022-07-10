@@ -1,0 +1,959 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_popupmenu.dic/右クリックメニューの文字列辞書 ####
+
+
+
+
+//
+//
+//
+//#### ポップアップメニューのキャプション等 ####
+
+
+// 開発用インターフェイス
+On_duibutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"DEVELOPERS' TOOLS(&D)"
+	}
+	else
+	{
+		"開発用(&D)"
+	}
+}
+
+// SSTPボックス
+On_callsstpsendboxbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SSTP SENDBOX(&S)"
+	}
+	else
+	{
+		"SSTPボックス(&S)"
+	}
+}
+
+// リージョンを切らずに表示
+On_regionenabledbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SHOW REGIONS(&R)"
+	}
+	else
+	{
+		"リージョンを切らずに表示(&R)"
+	}
+}
+
+// バルーンマーカー全表示
+On_debugballoonbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SHOW BALLOON MARKERS(&B)"
+	}
+	else
+	{
+		"バルーンマーカー全表示(&B)"
+	}
+}
+
+// 本体側おすすめサイト
+On_recommendrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"AMPOULES(&B)"
+	}
+	else
+	{
+		"植物用アンプル(&B)"
+	}
+}
+
+On_sakura.recommendsites
+{
+	"/
+	環境基本法%ASC(1)http://law.e-gov.go.jp/htmldata/H05/H05HO091.html%ASC(2)/
+	環境省%ASC(1)http://www.env.go.jp/%ASC(2)/
+	"
+}
+
+// ポータルサイト
+On_portalrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SOIL AND SEED(&P)"
+	}
+	else
+	{
+		"土壌と種(&B)"
+	}
+}
+
+On_sakura.portalsites
+{
+	"/
+	うさださくら%ASC(1)http://usada.sakura.vg/%ASC(1)http://sakura.mikage.to/banner.png/%ASC(2)/
+	C.R.O.W. official page%ASC(1)http://crow.aqrs.jp/%ASC(2)/
+	SSP BUGTRAQ%ASC(1)http://ssp.shillest.net/%ASC(2)/
+	-%ASC(2)/
+	青息吐息%ASC(1)http://ichika-najun.hp.infoseek.co.jp/%ASC(2)/
+	-%ASC(2)/
+	:::et cetera.%ASC(1)http://umeici.hp.infoseek.co.jp/etcetera/%ASC(2)/
+	-%ASC(2)/
+	StarLight Stream%ASC(1)http://ryu.4th.to/%ASC(2)/
+	Himawari Company%ASC(1)http://www.himawari-c.com/%ASC(2)/
+	-%ASC(2)/
+	as a cradle / as an epitaph%ASC(1)http://www3.to/nft/%ASC(2)/
+	"
+}
+
+// えこゅうおすすめサイト
+On_kero.recommendbuttoncaption
+{
+	if RButtonMenuLang == "En"
+	{
+		"LUKEWARM WATCH(&W)"
+	}
+	else
+	{
+		"ぬるく見守り(&W)"
+	}
+}
+
+On_kero.recommendsites
+{
+	"/
+	EXPO2005 愛・地球博%ASC(1)http://www.expo2005.or.jp/%ASC(2)/
+	"
+}
+
+// ネットワーク更新
+On_updatebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"METABOLIZE(&N)"
+	}
+	else
+	{
+		"代謝開始(&N)"
+	}
+}
+
+// 消滅指示ボタン
+On_vanishbutton.visible
+{
+	"%VanishButton"
+}
+
+On_vanishbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"RECYCLE(&E)"
+	}
+	else
+	{
+		"リサイクル(&E)"
+	}
+}
+
+// ヘッドライン
+On_headlinesenserootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"HEADLINE(&H)"
+	}
+	else
+	{
+		"ヘッドライン(&H)"
+	}
+}
+
+// プラグイン
+On_pluginrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"PLUGIN(&P)"
+	}
+	else
+	{
+		"プラグイン(&P)"
+	}
+}
+
+// 時計あわせ
+On_sntpbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"PUT YOUR CLOCK RIGHT(&T)"
+	}
+	else
+	{
+		"時計の調整(&T)"
+	}
+}
+
+// メールチェック
+On_biffbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"MAILCHECK(&M)"
+	}
+	else
+	{
+		"メール確認(&M)"
+	}
+}
+
+// 設定
+On_configurationbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"PREFERENCES(&P)"
+	}
+	else
+	{
+		"お好み設定(&P)"
+	}
+}
+
+// 設定
+On_switchrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SWITCHES(&O)"
+	}
+	else
+	{
+		"スイッチ類(&O)"
+	}
+}
+
+// プロクシ
+On_switchproxybutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"PROXY(&P)"
+	}
+	else
+	{
+		"プロクシ(&P)"
+	}
+}
+
+// ローカルSSTP
+On_switchlocalsstpbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"LOCAL SSTP(&S)"
+	}
+	else
+	{
+		"ローカルSSTP(&S)"
+	}
+}
+
+// リモートSSTP
+On_switchremotesstpbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"REMOTE SSTP(&R)"
+	}
+	else
+	{
+		"リモートSSTP(&R)"
+	}
+}
+
+// ブラックリスティング
+On_switchblacklistingbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"BLACKLISTING(&B)"
+	}
+	else
+	{
+		"ブラックリスティング(&B)"
+	}
+}
+
+// 自動メールチェック
+On_switchautobiffbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"AUTO MAILCHECK(&M)"
+	}
+	else
+	{
+		"自動メールチェック(&M)"
+	}
+}
+
+// 自動ヘッドラインセンス
+On_switchautoheadlinesensebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"AUTO HEADLINESENSE(&H)"
+	}
+	else
+	{
+		"自動ヘッドラインセンス(&H)"
+	}
+}
+
+// 画面内に連れ戻す
+On_switchmovetodefaultpositionbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"MOVE TO DEFAULT POSITION(&Z)"
+	}
+	else
+	{
+		"デフォルト位置に移動(&Z)"
+	}
+}
+
+// 無音
+On_switchquietbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"NO SOUND(&Q)"
+	}
+	else
+	{
+		"無音(&Q)"
+	}
+}
+
+// コンソール不可視
+On_switchconsolevisiblebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"VANISH CONSOLE(&I)"
+	}
+	else
+	{
+		"コンソール不可視(&I)"
+	}
+}
+
+// コンソール常時可視
+On_switchconsolealwaysvisiblebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SHOW CONSOLE ALWAYS(&C)"
+	}
+	else
+	{
+		"コンソール常時可視(&C)"
+	}
+}
+
+// 開発用インターフェイス表示
+On_switchduivisiblebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"USE DEVELOPERS' TOOLS(&D)"
+	}
+	else
+	{
+		"開発用インターフェイス表示(&D)"
+	}
+}
+
+// 着せ替え
+On_dressuprootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"DRESSUP(&D)"
+	}
+	else
+	{
+		"着せ替え(&D)"
+	}
+}
+
+// ゴーストエクスプローラ
+On_ghostexplorerbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"EXPLORER(&E)"
+	}
+	else
+	{
+		"エクスプローラ(&E)"
+	}
+}
+
+// ゴースト
+On_ghostrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"GHOST(&G)"
+	}
+	else
+	{
+		"ゴースト(&G)"
+	}
+}
+
+// シェル
+On_shellrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SHELL(&S)"
+	}
+	else
+	{
+		"シェル(&S)"
+	}
+}
+
+// リードミー
+On_readmebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"README(&R)"
+	}
+	else
+	{
+		"説明(&R)"
+	}
+}
+
+// バルーン
+On_balloonrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"BALLOON(&B)"
+	}
+	else
+	{
+		"バルーン(&B)"
+	}
+}
+
+// 使用率グラフ
+On_rateofuserootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"GRAPH(&U)"
+	}
+	else
+	{
+		"使用率グラフ(&U)"
+	}
+}
+
+// ゴースト合算
+On_rateofusetotalbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"GHOSTGRAPH(TOTAL)(&M)"
+	}
+	else
+	{
+		"ゴースト使用率（合算）(&M)"
+	}
+}
+
+// ゴースト個別
+On_rateofusebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"GHOSTGRAPH(SEPARATE)(&S)"
+	}
+	else
+	{
+		"ゴースト使用率（合算）(&S)"
+	}
+}
+
+// バルーン個別
+On_rateofuseballoonbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"BALLOONGRAPH(SEPARATE)(&B)"
+	}
+	else
+	{
+		"バルーン使用率（合算）(&B)"
+	}
+}
+
+// 常に手前に表示
+On_alwaysstayontopbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"STAY FRONT(&Y)"
+	}
+	else
+	{
+		"常に手前に表示(&Y)"
+	}
+}
+
+// 常にトレイアイコンを表示
+On_alwaystrayiconvisiblebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SHOW A TRAYICON(&T)"
+	}
+	else
+	{
+		"常にトレイアイコンを表示(&T)"
+	}
+}
+
+// アイコン化
+On_hidebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"HIDE(&I)"
+	}
+	else
+	{
+		"ちぢむ(&I)"
+		"木の葉隠れ(&I)"
+	}
+}
+
+// バージョン情報
+On_firststaffbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"INFO ABOUT BASEWARE(&V)"
+	}
+	else
+	{
+		"バージョン情報(&V)"
+	}
+}
+
+// 終了
+On_quitbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"CLOSE(&Q)"
+	}
+	else
+	{
+		"終了(&Q)"
+	}
+}
+
+//
+//
+//
+//####SSP特有####
+
+// 機能
+On_utilityrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"UTILITY(&F)"
+	}
+	else
+	{
+		"機能(&F)"
+	}
+}
+
+// カレンダー
+On_calendarbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SSP CALENDER(&C)"
+	}
+	else
+	{
+		"カレンダー(&C)"
+	}
+}
+
+// SSPメッセンジャー
+On_messengerbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SSP MESSENGER(&M)"
+	}
+	else
+	{
+		"SSPメッセンジャー(&M)"
+	}
+}
+
+// スクリプトログ
+On_scriptlogbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SCRIPT LOG(&L)"
+	}
+	else
+	{
+		"スクリプトログ(&L)"
+	}
+}
+
+// ゴーストキャッシュ開放
+On_purgeghostcachebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"PURGE CACHE(&G)"
+	}
+	else
+	{
+		"ゴーストキャッシュ開放(&G)"
+	}
+}
+
+// FMO書込／整理
+On_updatefmobutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"UPDATE FMO(&F)"
+	}
+	else
+	{
+		"FMO書込/整理(&F)"
+	}
+}
+
+// 動作情報リロード
+On_reloadinfobutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"RELOAD INFO(&R)"
+	}
+	else
+	{
+		"動作情報リロード(&R)"
+	}
+}
+
+// サーフィステスト
+On_surfacetestbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SURFACE TEST(&T)"
+	}
+	else
+	{
+		"サーフィステスト(&T)"
+	}
+}
+
+// 当たり判定を表示
+On_collisionvisiblebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SHOW COLLISIONS(&X)"
+	}
+	else
+	{
+		"当たり判定を表示(&X)"
+	}
+}
+
+// 設定
+On_configurationrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"CONFIGURATION(&O)"
+	}
+	else
+	{
+		"設定(&O)"
+	}
+}
+
+// 喋る時手前に出てくる
+On_switchactivatewhentalkbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"TALK TO BE FRONT(&A)"
+	}
+	else
+	{
+		"喋る時手前に出てくる(&A)"
+	}
+}
+
+// バルーンを消す
+On_closeballoonbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"CLOSE BALLOON(&B)"
+	}
+	else
+	{
+		"バルーンを消す(&B)"
+	}
+}
+
+// 制限モード強制解除
+On_leavepassivebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"LEAVE PASSIVEMODE(&P)"
+	}
+	else
+	{
+		"制限モード強制解除(&P)"
+	}
+}
+
+// 再読み込み
+On_switchreloadbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"RELOAD(&R)"
+	}
+	else
+	{
+		"リロード(&R)"
+	}
+}
+
+// 話すタイミングをゴースト任せ
+On_switchtalkghostbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"LET GHOST TALK AS THEY LIKE(&L)"
+	}
+	else
+	{
+		"話すタイミングをゴースト任せ(&L)"
+	}
+}
+
+// 旧仕様サポート
+On_switchcompatiblemodebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"COMPATIBLE MODE(&O)"
+	}
+	else
+	{
+		"旧仕様サポート(&O)"
+	}
+}
+
+// 定義なしサーフィスを無視
+On_definedsurfaceonlybutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"IGNORE UNDEFINED SURFACES(&I)"
+	}
+	else
+	{
+		"定義なしサーフィスを無視(&I)"
+	}
+}
+
+// 常にキャラクターを自由移動
+On_switchforcealignfreebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"MOVE FREELY(&F)"
+	}
+	else
+	{
+		"常にキャラクターを自由移動(&F)"
+	}
+}
+
+// 文字コード
+On_charsetbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"CHARSET(&C)"
+	}
+	else
+	{
+		"文字コード(&C)"
+	}
+}
+
+// 設定を標準に戻す
+On_resettodefaultbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"RESET TO DEFAULT(&R)"
+	}
+	else
+	{
+		"設定を標準に戻す(&R)"
+	}
+}
+
+// 標準設定として保存
+On_saveasdefaultbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SAVE NOW SETTINGS AS THE DEFAULT(&D)"
+	}
+	else
+	{
+		"標準設定として保存(&D)"
+	}
+}
+
+// ゴーストを呼ぶ
+On_callghostrootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"CALL ANOTHER(&W)"
+	}
+	else
+	{
+		"ゴーストを呼ぶ(&W)"
+	}
+}
+
+// 情報
+On_inforootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"INFO(&F)"
+	}
+	else
+	{
+		"情報(&F)"
+	}
+}
+
+// 説明書
+On_helpbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"HELP?(&H)"
+	}
+	else
+	{
+		"説明書(&H)"
+	}
+}
+
+// 閉じる
+On_closebutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"UNLOAD"
+	}
+	else
+	{
+		"閉じる"
+	}
+}
+
+//
+//
+//
+//####C.R.O.W.特有####
+
+// ゴーストインストール
+On_ghostinstallbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"GHOST INSTALL(&I)"
+	}
+	else
+	{
+		"ゴーストインストール(&I)"
+	}
+}
+
+// シェル倍率
+On_shellscalerootbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"SCALE OF SHELL(&C)"
+	}
+	else
+	{
+		"シェルのサイズ(&C)"
+	}
+}
+
+// 本体ネットワーク更新
+On_updateplatformbutton.caption
+{
+	if RButtonMenuLang == "En"
+	{
+		"BASEWARE UPDATE(&C)"
+	}
+	else
+	{
+		"本体ネットワーク更新(&C)"
+	}
+}

@@ -1,0 +1,141 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_cominike/異文化コミュニケーション辞書 ####
+
+
+
+
+//
+//
+//
+//#### こちらから話しかける ####
+
+StartCommunicate
+{
+	// まず話しかける相手を決める
+	if ghostexcount > 0
+	{
+		// res_reference0 に話しかける相手の名前を格納
+		res_reference0 = ghostexlist[random[ghostexcount]]
+	}
+	// 話しかける
+	if res_reference0 != ""
+	{
+		if RAND(100) < 50
+		// 他のゴーストにへ話しかける
+		{
+			"\0\s[0]････\w9\s[5]どもっ、\w6%(res_reference0)さん。\e"
+		}
+		else
+		{
+			"\0\s[0]（%(res_reference0)さんだ････。\w6\s[3]\n\n話しかけて、\w6いいのかな。\w6\nいきなりじゃメーワクに思われるかなあ････？）\w6\1\s[10]？\w6\e"
+			res_reference0 = ""
+		}
+	}
+	else
+	{
+		// 誰もいない
+		"\0\s[4]あれ。\w9\n\n････\w6\s[3]ここにいるのって、\w6もしかして私たちだけ？\w6\1\s[10]みたいやな。\e"
+		"\0\s[4]････\w6えーと。\w9\n\nいま、\w6誰もいない････\w6のかな？\w6\1\s[10]むう。\w9\0\s[3]\n\n気のせいかな････？\e"
+	}
+}
+
+
+//
+//
+//
+//#### 話しかけられたので返事する ####
+
+OnCommunicate
+{
+	if reference2 == "ECHO/1.0" // 台本コミニケ・受信
+	{
+		if "\![vanishbymyself]" !_in_ reference3 // vanishbymyselfを弾く。
+		{
+			res_reference0 = reference0
+			reference3
+		}
+	}
+	elseif reference0 == "user" || reference0 == "User"
+	{
+		ReplyToUser
+	}
+	else
+	{
+		ReplyToGhost
+	}
+}
+
+ReplyToUser
+{
+	TalkToUser
+}
+
+TalkToUser
+{
+	if "こんにちは" _in_ reference1 || "こんばんは" _in_ reference1
+	{
+		"\0\s[5]どうもっ。\e"
+	}
+	elseif "かみ" _in_ reference1 && "いろ" _in_ reference1 && "かわる" _in_ reference1
+	{
+		"\0\s[4]････\w6うーん、\w6\s[3]\nどうして色が変わるのか\w3って言われても････。\w9\n\nヒノキの精霊の頃からこういう体質だったから、\w6っていう答えでいいのかな？\w6\1\s[10]いや、\w6そういう意味の質問やないやろ。\w6\0\s[5]\n\nま、\w6まあ、\w6あんまり気にしないでね。\e"
+	}
+	elseif "すき" _in_ reference1 && "たべもの" _in_ reference1
+	{
+		"\0\s[2]す、\w6好きな食べ物？\w9\s[6]\n\n････まあ、\w6さしあたって今食べたいのは\n%(Dinner)かな。\w9\nえこゅうは？\w9\1\s[10]････\w6%(Vegetable)やね。\w6\w6\0\s[3]\n\n････\w6ベジタリアン？\e"
+	}
+	elseif "すき" _in_ reference1 && "きせつ" _in_ reference1
+	{
+		"\0\s[6]好きな季節。\w9\s[4]\n････\w6うーん････？\w9\1\s[10]微妙なところやな。\w9\0\s[1]\n\n････\w6春夏秋冬、\w6全部好きだよ？\w6\s[5]\n\n全部の季節に、\w6惹かれる魅力があると思うんですっ。\e"
+	}
+	elseif "きらい" _in_ reference1 && "きせつ" _in_ reference1
+	{
+		"\0\s[4]････。\w9\1\s[10]････\w9春夏秋冬、\w6全部一長一短あるねんで。\w6\n一概には言えへんな。\w9\0\s[3]\n\n････\w6夏は暑いし、\w6冬は寒いし。\w6\n\n秋はみんなが枯れちゃうし、\w6\n春には、\w6弱いと力尽きてしまう････。\e"
+	}
+	elseif "すき" _in_ reference1 || "あいし" _in_ reference1
+	{
+		"\1\s[10]････。\w9\0\s[3]････\w6気持ちは････\w6うれしいんだけど････。\w9\1\s[10]\n\n････\w6ひのきは、\w6少女の身体を借りてるに過ぎん。\w9\nこの娘の身体をあんまり長い間借りるわけにはいかへんから、\w6いつかはただの割り箸に戻らなあかん。\w6\w6\n\nひのきがただの割り箸に戻っても、\w6\n好きでいられる自信、\w6あるか？\w6\w6\n\n････\w9あらへんやろ？\w6\w6\0\s[0]\n\nだから。\w6\n････\w6\s[6]私に愛を傾けるよりも、\w6あなたの本当に大事な人に、\w6愛を傾けてあげて下さい････。\w6\w9\s[5]\n\n\w6でも、\w6ありがとうございました。\w9\n････\w9心の中にとっとくねっ。\e"
+	}
+	elseif "なんさい" _in_ reference1 || "とし" _in_ reference1 && "いくつ" _in_ reference1
+	{
+		"\0\s[2]え、\w6歳ですか？！\w9\1\s[10]････\w6このヨリマシの少女の歳なんか？\w6\nそれともひのきの本体の歳なんか？\w6\n\n････\w6てか、\w6訊いてどないするねん。\w9\0\s[4]\n\n････\w6正直、\w6よくわからないんだよね。\w9\n私、\w6この姿になるまで、\w6あんまり「年齢」っていう概念を気にしてなかったから････。\w6\w9\s[5]\cところで、\w6えこゅうは何歳？\w6\1\s[10]\cん？\w9\n\nま、\w6屋久島の千年杉と同じくらいやな。\w9\w6\0\s[4]\n\n････。\e"
+	}
+	elseif "しあわせ" _in_ reference1
+	{
+		"\0\s[2]え。\w9\n幸せか、\w6ですか？\w9\n\n････\w9\s[1]幸せですよっ。\w9\s[5]\n毎日、\w6幸せ。\w6\1\s[10]････。\e"
+	}
+	elseif "よびかた" _in_ reference1 && "かえ" _in_ reference1
+	{
+		"\0\s[0]あ、\w6呼び方の変更？\w6\s[5]\nそれなら、\w6ダブルクリックのメニューからどうぞ。\w6\1\s[10]････\w6えらいビジネスライクやな。\e"
+	}
+	elseif "えこゅう" _in_ reference1
+	{
+		"\1\s[10]････\w6む？\e"
+	}
+	else
+	{
+		"\0\s[6]････。\e"
+	}
+}
+
+ReplyToGhost
+{
+	// 話しかけてきた相手に返事
+	res_reference0 = reference0
+		//---- 誰かへ返事
+		if "こんにちは" _in_ reference1
+		{
+			"\0\s[5]あ、\w6どうもこんにちは。\w6%(res_reference0)さん。\e"
+		}
+		elseif "こんばんは" _in_ reference1
+		{
+			"\0\s[5]こんばんはー。\w6%(res_reference0)さん。\e"
+		}
+		elseif "どうも" _in_ reference1
+		{
+			"\0\s[5]どもっ。\w6ご機嫌うるわしゅう。\e"
+			"\0\s[5]どー\w3もー。\e"
+		}
+}

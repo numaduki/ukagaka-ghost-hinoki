@@ -1,0 +1,285 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_utility/ベーシック機能の辞書 ####
+
+
+
+
+//
+//
+//
+//#### メールチェック ####
+
+OnBIFFBegin
+{
+	"\0\s[6]ん。\w6\nメールをチェックするね。\w6\w6\e"
+	"\0\s[5]じゃ、\w6メールチェックするよ。\w6\w6\e"
+	"\0\s[6]メールチェック。\w6\1\s[10]むう。\w6\w6\e"
+}
+
+OnBIFFComplete
+{
+	if reference0 >= 10 && RAND(100) < 50
+	{
+		"\0\s[3]ね、\w6おはがき溜まってるよ？\w6\1\s[10]････\w6%(reference0)葉か。\w6\n\nチェックしいや。\e"
+		"\0\s[2]うわ。\w9\s[3]\nおはがき、\w6%(reference0)葉も溜まってるよ？\w9\1\s[10]････\w6むう。\w6\w6\n代わりに読んだるか。\w9\0\s[4]\n\nやだー････。\e"
+	}
+	elseif reference3 == 0
+	{
+		if GetDate("m") == 1 && GetDate("d") <= 10
+		{
+			"\0\s[3]えーと。\w9\n\n年賀メール、\w6来てなかったよ。\w6\1\s[10]････\w6むう。\e"
+		}
+		else
+		{
+			// 無かった
+			"\0\s[0]無いみたい。\e"
+			"\0\s[4]無かった。\w6\1\s[10]････\w6落ち込むんか。\e"
+			"\0\s[0]お便り、\w6ゼロ。\w6\n\n\s[5]エコロジーなお友達が多いのかな。\w6\1\s[10]････。\e"
+		}
+	}
+	else
+	{
+		// 届いていた
+		"\0\s[5]%(reference3)葉のおはがき発見っ。\w9\1\s[10]････\w6きとったか。\w9\0\s[0]\n\nメーラー起動する？\n\n\![*] \q[起動する,OpenMailer]\n\![*] \q[しない,Cancel]\e"
+		"\0\s[6]%(reference3)葉届いてますっ。\w9\1\s[10]おお。\w9\0\s[0]\n\nメーラー起動する？\n\n\![*] \q[起動する,OpenMailer]\n\![*] \q[しない,Cancel]\e"
+	}
+
+}
+
+OnBIFFFailure
+{
+	if reference0 == "timeout"
+	{
+		// タイムアウト
+		if (22 <= GetDate("th")) || (GetDate("th") <= 2)
+		{
+			"\0\s[3]タイムアウト。\w9\1\s[10]････\w9夜やな。\w6\0\s[4]\n\n････\w6夜だね。\e"
+		}
+		else
+		{
+			"\0\s[4]タイムアウト。\w9\n\n････\w9重いー。\w9\1\s[10]ちゃんと繋がっとるかも見てみてくれや。\e"
+		}
+	}
+	elseif reference0 == "kick"
+	{
+		// 蹴られた
+		"\0\s[4]････\w6蹴られた････。\w6\1\s[10]････。\w6\0\s[3]\n\nIDとか。\w6パスワードとか。\w6\n確認してみて。\e"
+	}
+	elseif reference0 == "defect"
+	{
+		// 設定誤り
+		"\0\s[4]んー。\w9\n\nもしかして。\w6設定間違ってない？\w6\1\s[10]････\w6確認してな。\e"
+	}
+	else
+	{
+		// 原因不明
+		"\0\s[3]よくわかんないけど････\w6失敗。\w6\1\s[10]むう。\e"
+	}
+}
+
+OpenMailer
+{
+	"\0\s[6]ん。\![open,mailer]\e"
+}
+
+//
+//
+//
+//#### ネットワーク更新 ####
+
+OnUpdateBegin
+{
+	"\0\s[5]えこゅう、\w6そろそろ代謝とか、\w6しない？\w6\1\s[10]せやな。\w6\nやってみるか。\w6\w6\e"
+	"\0\s[5]えこゅう、\w6代謝しよっか。\w6\1\s[10]ふむ。\w6やるか。\w6\w6\e"
+	"\0\s[6]代謝、\w6はじめっ。\w6\1\s[10]どれ。\w6\w6\e"
+	"\0\s[6]それでは恒例、\w6代謝タイムっ。\w6\1\s[10]････\w6恒例？\w6\w6\e"
+	"\0\s[1]では、\w6代謝します。\w6\1\s[10]････\w6なんで赤面やねん。\w6\w6\e"
+}
+
+OnUpdateReady
+{
+	_i = reference0 + 1
+	_i = GetOkurigana("つ",_i)
+	"\0\s[6]ん、\w6\s[0]%(_i)の代謝システムの更新を捕捉っ。\w9\e"
+	"\0\s[6]ん、\w6\s[0]代謝システム更新、はじめるよ。\1\s[10]%(_i)やな。\w9\e"
+	"\0\s[6]代謝システムの更新、\w6%(_i)捕捉っ。\w6\1\s[10]おう。\w9\e"
+}
+
+OnUpdateComplete
+{
+	if reference0 == "none"
+	{
+		// 更新すべきファイルが無かった
+		"\0\s[8]････\w6まだ代謝の必要、\w6ないみたいだね。\w6\1\s[10]むう。\e"
+		"\0\s[6]代謝システムの更新、\w6なし。\w6\1\s[10]････\w6そうか。\e"
+		"\1\s[10]････\w6まだみたいやな。\w6\0\s[3]ん。\e"
+	}
+	else
+	{
+		// 実際に更新が完了した
+		"\1\s[10]ん。\w6更新終了やな。\w6\0\s[6]植物は絶えずまったりこそこそ進化しているのですっ。\e"
+		"\0\s[6]システム、\w6更新成功。\w6\s[5]\nちょっぴり進化したよ。\w6\1\s[10]せやな。\e"
+		"\0\s[6]システムの更新、\w6終わりっ。\w6\1\s[10]進化したで。\e"
+	}
+}
+
+OnUpdateFailure
+{
+	if reference0 == "timeout"
+	{
+		// タイムアウトした
+		"\0\s[4]んー、\w6時間切れー。\w6\1\s[10]････\w6また後で、\w6やな。\e"
+	}
+	elseif reference0 == "md5 miss"
+	{
+		// MD5値が一致しなかった
+		"\0\s[4]MD5値不一致。\w6\1\s[10]････？\e"
+	}
+	else
+	{
+		// 上記以外の理由で失敗した
+		"\0\s[4]････\w6なんかよくわかんないけど、\w6更新失敗。\w6\1\s[10]････\w6なんでやろな。\e"
+	}
+}
+
+OnUpdate.OnDownloadBegin //ダウンロード開始
+{
+	"\0\s[6]\_q'%(reference0)'\n\n\![*] DOWNLOAD\_q\e"
+}
+
+OnUpdate.OnMD5CompareBegin //MD5値照合開始
+{
+	"\0\s[6]\_q'%(reference0)'\n\n\![*] DOWNLOAD\n\n\![*] MD5 COMPARISON\_q\e"
+}
+
+OnUpdate.OnMD5CompareComplete //MD5値一致
+{
+	"\0\s[6]\_q'%(reference0)'\n\n\![*] DOWNLOAD\n\n\![*] MD5 COMPARISON\n　　%(reference1)\n　　%(reference2)\n\n\![*] '%(reference0)' INSTALLED.\_q\e"
+}
+
+OnUpdate.OnMD5CompareFailure //MD5値不一致
+{
+	"\0\s[6]MD5値不一致。\e"
+}
+
+
+//
+//
+//
+//#### ヘッドラインセンス ####
+
+OnHeadlinesenseBegin
+{
+	"\0\s[5]%(reference0)地方に咲くタンポポさんに、\nヘッドラインをリクエスト中っ。\e"
+}
+
+OnHeadlinesense.OnFind
+{
+	if reference2 == "First" || reference2 == "First and Last"
+	{
+		// 最初のページ
+		"\0\b[2]\s[0]\_q『%(reference0)』の情報。"
+	}
+	elseif reference2 == "Next"
+	{
+		// 真ん中あたりのページ
+		"\0\b[2]\s[6]\_q『%(reference0)』の情報、続き。"
+	}
+	elseif reference2 == "Last"
+	{
+		// 最後のページ
+		"\0\b[2]\s[5]\_q『%(reference0)』の情報、このページで終わり。"
+	}
+	--
+	"\n\n%reference3\_q\n\n"
+	--
+	if reference2 == "First" || reference2 == "Next"
+	{
+		// 次のページがある場合
+		"\q0[][次ページ]/
+		\q1[%(reference1)][サイトへ]/
+		\q2[HeadLineCancel][閉じる]\e"
+	}
+	else
+	{
+		// 次のページがない場合
+		"\q0[%(reference1)][サイトへ]/
+		\q1[HeadLineCancel][閉じる]\e"
+	}
+}
+
+OnHeadlinesenseComplete
+{
+	"\0\s[6]････\w6変わりないって････。\w6\1\s[10]平和やね。\e"
+}
+
+OnHeadlinesenseFailure
+{
+	if reference0 == "can't download"
+	{
+		"\0\s[4]返事、\w6来ない････。\w6\1\s[10]････\w6むう。\w6\0\s[3]\n\n････\w6枯れちゃった････？\e"
+	}
+	elseif reference0 == "can't analyze"
+	{
+		"\0\s[4]えっと････。\w6\s[3]\n返事は来たんだけど。\w6\w6\n\n････\w6これ、\w6何語？\w6\w6\1\s[10]････\w6いわゆる解読不能やね。\e"
+	}
+	else
+	{
+		"\0\s[3]････\w6返事、\w6来ないね。\w9\1\s[10]････\w6ま、\w6\n変わりなく元気にしとるってことやろな。\e"
+	}
+}
+
+
+
+//
+//
+//
+//####　時計合わせ　####
+
+OnSNTPBegin
+{
+	"\0\s[6]時計あわせ。\w6\n\s[5]時間を%(reference0)の時計草さんに訊いてみようっ。\w6\w6\e"
+}
+
+OnSNTPCompare
+{
+	"\1\s[10]/
+	\_q時計草、%(reference1[0])年%(reference1[1])月%(reference1[2])日%(reference1[3])時%(reference1[4])分%(reference1[5])秒。\n時計、%(reference2[0])年%(reference2[1])月%(reference2[2])日%(reference2[3])時%(reference2[4])分%(reference2[5])秒。\_q\w6\n\n"
+	--
+	if reference3 == 0
+	{
+		"\0\s[2]あ、\w6ぴったり････。\w6\w6\n\s[5]おめでとうっ。\e"
+		"\0\s[4]････\w6\w6ぴったり。\w6\w6\1\s[10]････\w6いや、\w6なんで残念やねん。\e"
+	}
+	else
+	{
+		if reference3 < 0
+		{
+			"\0\s[6]%(reference3)秒のズレ‥‥\w9\s[3]って、\w6マイナス？\w9\1\s[10]････\w6ま、\w6とにかくずれとるんやろ。\0\n\n"
+		}
+		else
+		{
+			"\0\s[3]%(reference3)秒、\w6ズレてるみたいだよ‥‥。\n\n"
+		}
+		--
+		"\q0[OnSNTPExecute][あわせる]/
+		\q1[OnSNTPCancel][ほっとく]\e"
+	}
+}
+
+OnSNTPExecute
+{
+	"\1\s[10]時計あわせ完了。\w6\0\s[5]ぴったりっ。\6\e"
+}
+
+OnSNTPCancel
+{
+	"\1\s[10]\0\s[3]\_s植物、\w6嘘つかない。\_s\e"
+}
+
+OnSNTPFailure
+{
+	"\0\s[3]････\w6時計草さん、\w6お留守････。\w6\1\s[10]････\w6また後でやな。\e"
+}

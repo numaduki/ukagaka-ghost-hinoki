@@ -1,0 +1,211 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_blnmenu/バルーンメニュー辞書 ####
+
+
+
+
+//
+//
+//
+//#### 本体側バルーンメニュー展開 ####
+
+OpenMenu
+{
+	"\0\_q"
+	--
+	"\s[5]なに？"
+	"\s[6]この中からどうぞっ。"
+	"\s[0]ん。"
+	"\s[5]なにするの？"
+	"\s[6]メニューだよ。"
+	"\s[0]ん、どしたの？"
+	"\s[5]メニュー。"
+	--
+	"\_q\n\n\_q/
+	\![*] \q[普通に会話させておく,OnAiTalk]\n/
+	\![*] \q[環境負荷の設定,SelectTalkInterval]\n/
+	\![*] \q[コミュニケートボックス,OpenCommunicateBox]\n/
+	\![*] リスト(\q[ジュークボックス,ShowListFromBlnMenuJ]/\q[ランチャー,ShowListFromBlnMenuL])\n/
+	\![*] \q[設定,ShowConfigBalloon] \![*] \q[呼び名を変える,RenameUser] \![*] \q[公開情報,ShowGhostInfo]\n/
+	\n/
+	\![*] \q[キャンセル,MenuCancel]\_q\e"
+}
+
+SelectTalkInterval
+{
+	"\0\s[5]環境への負荷を選択してくださいっ。\w6\1\s[10]････。\w6\0\s[0]\n\n/
+	\![*] \q[最高負荷,ChangeTalkInterval40]\n/
+	\![*] \q[通常負荷,ChangeTalkInterval180]\n/
+	\![*] \q[軽少負荷,ChangeTalkInterval300]\n/
+	\![*] \q[最少負荷,ChangeTalkInterval0]\n/
+	\n/
+	\![*] \q[キャンセル,Cancel]\e"
+}
+
+ChangeTalkInterval40
+{
+	// 1回/40秒
+	aitalkinterval = 40
+	"\1\s[10]40秒に1回。\0\s[7]お前みたいなのがいるから\n南海の島々が水没するんだっ！\1\s[10]\c落ち着けっ！\e"
+}
+
+ChangeTalkInterval180
+{
+	// 1回/3分
+	aitalkinterval = 180
+	"\1\s[10]3分に1回。\w9\n\nま、\w6普通に喋ってればこれぐらいやな。\w6\0\s[8]んー････、\w6まあね。\e"
+}
+
+ChangeTalkInterval300
+{
+	// 1回/5分
+	aitalkinterval = 300
+	"\1\s[10]5分に1回。\w6\n\nま、\w6静かめやな。\w9\0\s[5]なるべく二酸化炭素を出さないように努める、\nすばらしい心がけですっ。\w6\1\s[10]\n\n････。\e"
+}
+
+ChangeTalkInterval0
+{
+	// 喋らない
+	aitalkinterval = 0
+	"\1\s[10]････\w9むう。\w9\0\s[4]････\w9\s[7]エコロジーにも程がありますっ！\w6\1\s[10]\n\n････\w9どうしろと。\e"
+}
+
+Cancel
+{
+	"\0\s[6]ん。\e"
+	"\0\s[5]そう？\e"
+	"\1\s[10]ふむ。\e"
+}
+
+MenuCancel
+{
+	"\0\s[6]またいつでもどうぞ。\e"
+	"\0\s[0]じゃ････、\w6\s[5]また後でね。\e"
+	"\0\s[0]ん。\e"
+}
+
+HeadLineCancel
+{
+	"\0\s[6]じゃ、\w6終わり。\e"
+	"\0\s[6]ヘッドライン、\w6おしまい。\e"
+}
+
+RenameUser
+{
+		"\0\s[5]はい、\w6名前の変更ですねー。\w6\s[2]\cって\w6\s[7]\n\n今までウソついてたのかっ！\w6\1\s[10]名前なんてただの飾りや。\w6\n偉いヒトにはそれが\0\s[5]\cそれでは%(username)さんの新しい名前をどうぞっ。\w9\1\s[10]\n\n････。\![open,inputbox,usernameagain,-1]\e"
+}
+
+OpenCommunicateBox
+{
+		"\0\s[5]ん？\w6\n\nなに？\w6\1\s[10]全部『ひらがな』で入力したってや。\w6\n漢字わからへんからな。\![open,communicatebox]\e"
+}
+
+ShowListFromBlnMenuL
+{
+	ShowBlnLauncher
+}
+
+ShowListFromBlnMenuJ
+{
+	ShowJukeBoxLineUp
+}
+
+
+//
+//
+//
+//#### メニュー項目選択 ####
+
+OnChoiceSelect
+{
+	EVAL(reference0)
+}
+
+
+
+
+//
+//
+//
+//######## 選択肢タイムアウト ########
+
+OnChoiceTimeout
+{
+	"\0\s[4]････\w6おそいー。\e"
+	"\0\s[4]････\w6時間切れ。\e"
+	"\0\s[0]じゃ、\w6また後で。\e"
+	"\0\s[3]････\w6ん？\e"
+}
+
+
+//
+//
+//
+//######## えこゅうメニュー ########
+
+OpenKeroMenu
+{
+	"\1\s[10]\b[2]････\w6ん。"
+	"\1\s[10]\b[2]自然がええんやけどな････。"
+	"\1\s[10]\b[2]････\w6む。"
+	--
+	"\n\n\![*] \q[自然に従う,HinokiShellSetAuto]\n\n[half]\![*] \q[春っぽくする,HinokiShellSetSpring]\n\![*] \q[夏っぽくする,HinokiShellSetSummer]\n\![*] \q[秋っぽくする,HinokiShellSetAutumn]\n\![*] \q[冬っぽくする,HinokiShellSetWinter]\n\n[half]\![*] \q[やめとく,CancelKeroMenu]\e"
+}
+
+HinokiShellSetAuto
+{
+	ManualShellChange = 0
+	GetSeasonForSurface
+	--
+	"\1\s[10]\w9････\w6ま、\w6自然が一番ちゅうことやな。\w6\0\s[100]\w9\w9ん？\w9\w9\n\s[5]何が？\w9\1\n\n････\w9\w9いや。\e"
+	"\1\s[10]\w9････\w6ま、\w6自然が一番ちゅうことやな。\w6\0\s[200]\w9\w9ん？\w9\w9\n\s[5]何が？\w9\1\n\n････\w9\w9いや。\e"
+}
+
+HinokiShellSetSpring
+{
+	ManualShellChange = 1
+	"\0\s[0]････\w6ん。\w6\w6\s[104]\w9\w9"
+	--
+	HINO = 4
+	--
+	"\s[1]\n\n････\w6なんだかいい感じにぽかぽかしてきたよ。\e"
+}
+
+HinokiShellSetSummer
+{
+	ManualShellChange = 1
+	"\0\s[0]････\w6ん。"
+	--
+	HINO = 0
+	--
+	"\w6\w6\s[200]\w9\w9\s[4]\n\n････\w6なんだか暑くなってきた。\e"
+}
+
+HinokiShellSetAutumn
+{
+	ManualShellChange = 1
+	"\0\s[0]････\w6ん。\w6\w6\s[102]\w9\w9"
+	--
+	HINO = 2
+	--
+	"\s[3]\n\n････\w6なんだか切ない感じの風････？\e"
+}
+
+HinokiShellSetWinter
+{
+	ManualShellChange = 1
+	"\0\s[0]････\w6ん。\w6\w6\s[203]\w9\w9"
+	--
+	HINO = 3
+	--
+	"\s[6]\n\n････\w6なんだか雪が降りそうな感じ････。\e"
+}
+
+CancelKeroMenu
+{
+	"\1\s[10]････\w6さよか。\e"
+	"\1\s[10]････\w6むう。\e"
+	"\1\s[10]････\w6ふむ。\e"
+}

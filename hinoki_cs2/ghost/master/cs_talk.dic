@@ -1,0 +1,259 @@
+//
+//
+// #### ひのき "the ChopSticks" ####
+// #### cs_talk/トークとアンカーの辞書 ####
+
+
+
+
+//
+//
+//
+// #### ランダムトークイベント（文が独自に通知） ####
+
+OnAiTalk
+{
+	if mikireflag == 1 && MikireReaction != 1 || mikireflag == 0
+	{
+		if CHAIN.IDName == ""
+		{
+			RandomTalk
+		}
+		else
+		{
+			ChainTalk
+		}
+	}
+	else
+	{
+		MikireTalk
+	}
+}
+
+
+
+
+//
+//
+//
+// #### ランダムトーク ####
+
+RandomTalk
+{
+	if RAND(100) < 7
+	{
+		SeasonTalk
+	}
+	else
+	{
+		NormalTalk
+	}
+}
+
+NormalTalk : nonoverlap
+{
+	NormalTalk1
+	NormalTalk2
+}
+
+SeasonTalk : nonoverlap
+{
+	SeasonTalk1
+}
+
+
+//
+//
+//
+//#### チェイントーク用関数。ChainIDに変数入ってHinokiChainTalkが呼ばれる ####
+
+HinokiChainTalk
+{{CHAIN
+	_i = ChainID
+	ERASEVAR("ChainID")
+
+	if _i == "mikirego"
+	{
+		"\0\s[3]もしかして私たち、\w6････\w6作業の邪魔？\w6\1\s[10]ま、\w6邪魔なら最小化してくれや。\w6\nわいらから引っ込むことはできへんしな。\e"
+	}
+	elseif _i == "nashi"
+	{
+		"\1\s[10]むう。\w6\w6\nひのきかて、\w6建築材になる時は\w3\n『火の木（ヒノキ）』\w3やなくて\w3\n『日の木（ニチノキ）』\w3て言われとるんやで？\w9\0\s[2]え、\w6ウソっ？！\w6\nホント？\w9\w9\w9\w6\0\s[3]\n\n････\w6あれ？\w9\nウソじゃないの？\w6 ホントなの？\w6\nどっちなの？\w9\1\s[10]\n\n････。\e"
+	}
+	elseif _i == "gomunoki"
+	{
+		"\0\s[3]････\w9でも。\w9\nゴムの木さんって、\w6遺伝的にみんなMなんだって。\w6\1\s[10]････\w6そういうオチか。\e"
+	}
+	elseif _i == "satsuzin"
+	{
+		"\0\s[7]\n\f[height,100]え\w5\c\n\f[height,100]こ\w4\c\n\f[height,100]ゅ\w6\c\n\f[height,100]う\w4\c\n\f[height,100]殺\w5\c\n\f[height,100]人\w5\c\n\f[height,100]事\w6\c\n\f[height,100]件\w4\c\n\f[height,100]２\w7\c\n\n\_q\f[height,10]少女探偵ひのきシリーズ②\n\n\f[height,20]えこゅう殺人事件２\n\n\f[height,10]～湯けむり特急・ダイヤに潜む罠～\_q\w9\w9\1\s[10]････\w92回も殺されるんか。\e"
+	}
+}}CHAIN
+
+
+
+
+//
+//
+//
+//#### アンカー（キャラクタ型ジャンパ） ####
+
+OnAnchorSelect
+{
+	if reference0 == "hop"
+	{
+		"\1\s[10]受精すると、\w6原料としてのホップの質が下がる。\w9\nせやからホップ畑は男子禁制なんやな。\w9\0\s[3]････\w6えこゅうって。\w6\w6\n\nさりげなくデリカシーないね。\w6\1\s[10]\n\nなんやねん。\e"
+	}
+	elseif reference0 == "ginmokusei"
+	{
+		"\0\s[0]キンモクセイさんが、\w6\nギンモクセイさんの娘さんになるわけだね。\w9\1\s[10]せやな。\w6\n金色やったらキンモクセイ、\w6\n銀色やったらギンモクセイや。\w9\n\nどっちもギンギラギンにさりげない感じやな。\w6\w6\0\s[8]\n\n････。\w6\w6\1\s[10]\n\n････。\e"
+	}
+	elseif reference0 == "arinomi"
+	{
+		"\0\s[0]なしさんの実のことだね。\w9\1\s[10]む。\w6\n知ってたか。\w9\0\s[4]\n\n『なし』\w3を\w3『あり』\w3って････。\w6\n何ていうかさ。\w9\1\s[10]\n\n････\w6ま、\w6植物にはわからん何かがあるんやろな。\e:nashi"
+	}
+	elseif reference0 == "violin"
+	{
+		"\0\s[0]でもね。\w6\w6\s[6]\nすごく丁寧に扱ってくれるって。\w6\w6\1\s[10]････\w9むう。\e"
+	}
+	elseif reference0 == "nyoronyoro"
+	{
+		"\0\s[6]････\w6\w6えっと。\w9\s[3]\n菌類････\w6だっけ？\w9\1\s[10]････\w6何かの妖精ちゃうんか？\w6\w6\0\s[4]\n\n････。\e"
+	}
+	elseif reference0 == "otogirisou"
+	{
+		"\0\s[6]弟切草さんは、\w6薬にしたらガンも抑制できちゃう。\w6\1\s[10]鬱も治るかもな。\w9\0\s[3]\n\n････\w6え？\e"
+	}
+	elseif reference0 == "kakkoiinamae"
+	{
+		"\0\s[6]アルファルファさんとか、\w6かっこいいよね。\w9\n名前。\w9\1\s[10]････\w6またどえらいマイナーどころやな。\e"
+	}
+	elseif reference0 == "blackblack"
+	{
+		"\0\s[0]ガムだね。\w9\1\s[10]････\w6ガムやな。\w9\0\s[5]\n\n1度食べたらやみつきになるあの味。\w6\1\s[10]\nなんでやねん。\w9\0\s[8]\n\nリピーター率も凄く高いらしいよ。\w9\1\s[10]\n\nいや、\w6\w6････\w6\w6まあ、\w6そうかもな。\e"
+	}
+	elseif reference0 == "seiyoutanpopo"
+	{
+		"\0\s[0]花が乗っかってる部分を下から見て。\w9\s[5]\n反り返ってたら、\w6セイヨウタンポポさん。\w9\1\s[10]反り返ってなければ、\w6日本に昔からおるタンポポやな。\w9\n\nたまに見てみてや。\e"
+	}
+	elseif reference0 == "kuruizaki"
+	{
+		"\0\s[6]えっと。\w9\s[0]\n\nわたしたちが、\w6季節外れに花を咲かせることだね。\w6\s[3]\n\n夏なのに寒いと秋と勘違いしたり、\w6\n逆に春なのに暑いと夏と勘違いしたりしちゃうんです････。\w6\1\s[10]ま、\w6許したってや。\w9\0\s[5]\n\n別に狂ったようにたくさん花が咲いているとか、\w6\nそういう意味じゃないよっ？\e"
+	}
+	elseif reference0 == "biotopu"
+	{
+		"\0\s[6]ビオトープ。\w9\s[5]\n\n植物が好き勝手できる場所ですっ。\w6\1\s[10]････\w6説明になってへんぞ。\w6\0\s[3]\n\nうーん････。\w9\s[4]\n要するに、\w6植物版禁猟区っていうか。\w6\n全部コンクリートで固めないでちょこっと残して、\w6そこを自然公園にするとか････\w9そんな感じなのかなぁ。\w9\1\s[10]\n\nいや････\w6\w6推測か。\e"
+	}
+	elseif reference0 == "youmyaku"
+	{
+		"\1\s[10]ん。\w9\nま、\w6茎から続いてる、\w6\n筋みたいな感じの部分のことやな。\w9\0\s[3]････\w6裏からなぞられるとやばいらしいよ。\w9\1\s[10]\n\n････\w6そうか。\e"
+	}
+	elseif reference0 == "wafxa"
+	{
+		"\0\s[0]wafxa。\w9\s[4]\n\nんっと。\w6どう説明すればいいのかな････。\w9\1\s[10]まあ････\w6Winamp2にメッセージを送る\nアプリケーションやね。\w9\0\s[6]\n\nん、\w6そうだね。\w9\1\s[10]\n\nNo Music No Lifeやね。\w9\0\s[5]\n\n････\w6そうだね。\e"
+	}
+	elseif reference0 == "hoppeta"
+	{
+		"\0\s[6]えっと。\w6なんていうんだろ。\w6\w6\s[8]\n\n振り向いてほっぺがくるところに人差し指を向けといて、\w6後ろからその人の肩を叩くわけ。\w6\w6\s[5]\n\nで、\w6そしたら相手は気づかずにこっちを振り向いて、\w6ほっぺたを指でぷにーってされて凄い悔しい気分に苛まれる、\w6って風情だよ。\w6\1\s[10]････\w6実行前に本人に説明してどうするねん。\w6\0\s[2]\n\nうっ････。\e"
+	}
+	elseif reference0 == "oike"
+	{
+		"\0\s[4]ていうか。\w9\nあの歌の2番って、\w6どういう歌詞だっけ？\w9\1\s[10]････\w6知らへんな。\w6\0\s[3]\n\nやっぱり勾引かされちゃったんだ････。\w9\1\s[10]\n\n････\w6その想像力は大切にせえ。\e"
+	}
+	elseif reference0 == "aroerina"
+	{
+		"\0\s[6]しかもみんな、\w6歌い終わった途端に、\w6\n何か凄い満足気に笑うんだって。\w9\s[4]\n\n････\w6何なんだろ？\w6\nえこゅう、\w6何か知ってる？\w6\1\s[10]････\w6さあ。\e"
+	}
+	elseif reference0 == "mabiki"
+	{
+		"\0\s[6]ん。\w9\s[0]\n間引きっていうのはね、\w3\1\s[10]いや。\w9\n\n････\w9ひのき。\w9\0\s[5]\n\nなに？\w9\w9\1\s[10]\n\n････。\e"
+	}
+	elseif reference0 == "sabaku"
+	{
+		"\0\s[4]････\w6いや。\w6あのさ。\w6\w6\s[8]\n\nもし%usernameさんが植物だったら、\w6\nあんな場所に植えられたい？\w6\1\s[10]････\w6イヤすぎる。\e"
+	}
+	elseif reference0 == "puropaganda"
+	{
+		"\0\s[7]今ニューヨークで大ブレイク中なんですっ！\w3\nニューヨークで！\w3\nさあ乗り遅れるなっ！\w6\1\s[10]信じるかい。\e"
+	}
+	elseif reference0 == "kenahu"
+	{
+		"\0\s[5]ケナフさんは、\w6二酸化炭素が大の好物。\w6\s[0]\nたくさん吸って、\w6たくさん光合成するんだね。\w6\1\s[10]ま、\w6人間には好都合なわけやな。\w6\0\s[6]\n\n････\w6最近は、\w6ファーストフードの店の\_a[kaminapukin]紙ナプキンの原料\_aになってたりするみたいだよ。\e"
+	}
+	elseif reference0 == "kaminapukin"
+	{
+		"\0\s[3]････\w6でも。\w6\n\n････\w6紙の繊維として使われる部分より、\w6\n使われずに燃やされちゃう部分の方が多いんだって。\w6\1\s[10]････\w6むう。\e"
+	}
+	elseif reference0 == "reuse"
+	{
+		"\0\s[6]3Rっていって、\w6\nリデュース、リユーズ、リサイクル。\w9\s[5]\n\nま、\w6なんていうか、\w6\nもったいない精神でいけってことだね。\w6\1\s[10]････\w6いや、\w6それは。\e"
+	}
+	elseif reference0 == "zyuuzokueiyou"
+	{
+		"\0\s[0]従属栄養植物、\w6っていうのは。\w6\n他の生き物からエネルギーをもらったり横取りしたりして生きてる植物さんのこと。\w9\s[6]\n\n例えば、\w6おっきな木に寄生する植物さんとかね。\w9\1\s[10]普通の植物は自分でエネルギーを作れる。\w6\n光合成やな。\w9\0\s[5]\n\nちなみに私は独立栄養植物ですっ。\e"
+	}
+	elseif reference0 == "gohantsubu"
+	{
+		"\0\s[4]今の若い人はやるのかな、\w6これ。\w6\1\s[10]････\w6どうやろな。\w6\0\s[3]\n\n旧い文化って、\w6どんどん失われていくんだね････。\w6\1\s[10]\n\nどこの世界でも同じや。\e"
+	}
+	elseif reference0 == "yorimashi"
+	{
+		"\1\s[10]簡単に言えば、\w6\n霊的な存在を身体に迎え入れる役目の人間のことや。\w9\n\n誰でもできるってわけやないらしいな。\w9\nあと、\w6幼い女の子が適任らしいで。\w6\0\s[3]････\w6かわいそう････。\w6\1\s[10]\cお前が言うんかい。\e"
+	}
+	elseif reference0 == "tensai"
+	{
+		"\0\s[0]テンサイさん。\w6漢字では甜菜、\w6だね。\w9\s[6]\nカブみたいな感じの、\w6\n砂糖の原料になったりするお野菜さんだよ。\w6\w6\s[0]\n\n試合前のインタビューによると、\w6\s[7]\n『北海道の甘味料は俺一人でいい！』\w9\s[5]\nだって。\w9\1\s[10]････。\e"
+	}
+	elseif reference0 == "kusattetemo"
+	{
+		"\0\s[7]バナナさんだって腐り始めてからが本領発揮なんだっ！\1\s[10]落ち着けっ！\e"
+	}
+	elseif reference0 == "anemone"
+	{
+		"\0\s[0]イギリスでは、\w6アネモネさんの花言葉は『病気』。\w6\s[6]\n他にも国とか色とかで意味が全然違ったりするから、\w6\n注意してね。\w6\1\s[10]じゃ、\w6ひのきの花言葉は？\w6\0\s[3]\n\n\w6････\w9ふ、\w9『不滅』。\w9\1\s[10]\n\n････\w9不滅？\e"
+	}
+	elseif reference0 == "keshi"
+	{
+		"\0\s[6]乳液を乾かしてアヘン。\w9\s[5]\n精製してモルヒネだね。\w9\s[3]\n\n中毒性高いから、\w6\n今ではあんまり使ってもらえないみたい。\w9\1\s[10]････。\w6\w6\nしかしあいつら、\w6困ったら自分で金作れるんやな。\w6\w6\nええなあ。\w6\w6\n不況の影響もなし、\w6か。\w6\w6\0\s[4]\n\n････。\e"
+	}
+	elseif reference0 == "nekko"
+	{
+		"\0\s[7]友達に、\w4\s[8]\n\n『この写真の顔見たらさぁ、ちょっと根っこで足引っ掛けて転ばせてやって』\w4\s[7]\n\nって言ってやるっ！\w6\1\s[10]････\w6やめとき。\w6\n結局、\w6自分の痛みになるで。\w9\0\s[4]\n\nうー。\e"
+	}
+	elseif reference0 == "jukebox1" || reference0 == "jukebox2" || reference0 == "jukebox3" || reference0 == "jukebox4" || reference0 == "jukebox5" || reference0 == "jukebox6" || reference0 == "jukebox7" || reference0 == "jukebox8" || reference0 == "jukebox9" || reference0 == "jukebox10" || reference0 == "jukebox11" || reference0 == "jukebox12"
+	{
+		_i = SUBSTR(reference0,7,2)
+		CVINT(_i)
+		_i -= 1
+		FUNCTIONEX("co2\edittext.dll","list.txt","Replace",_i,"")
+		FUNCTIONEX("co2\edittext.dll","list.txt","Save")
+		--
+		"\0\s[0]ん、\w6削除。\e"
+		"\0\s[0]削除っ。\e"
+		"\0\s[5]削除したよ。\e"
+	}
+	elseif "bootapplinor" _in_ reference0
+	{
+		_l = STRLEN(reference0) - 12
+		_i = SUBSTR(reference0,12,_l)
+		CVINT(_i)
+		_ignore = FUNCTIONEX("co2\edittext.dll","list2.txt","GetLine",_i)
+		_j = valueex0
+		_k = GetExtractFileName2(_j)
+		FUNCTIONEX("co2\exec.dll","norm","%(_j)")
+		--
+		"\0\s[0]『%(_k)』起動。\e"
+	}
+	elseif "eraseapplipath" _in_ reference0
+	{
+		_l = STRLEN(reference0) - 14
+		_i = SUBSTR(reference0,14,_l)
+		CVINT(_i)
+		FUNCTIONEX("co2\edittext.dll","list2.txt","Delete",_i)
+		FUNCTIONEX("co2\edittext.dll","list2.txt","Save")
+		--
+		"\0\s[0]ん、\w6削除。\e"
+		"\0\s[0]削除っ。\e"
+		"\0\s[5]削除したよ。\e"
+	}
+}
