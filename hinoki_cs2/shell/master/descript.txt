@@ -1,0 +1,32 @@
+name,Round And Round
+type,shell
+craftman,Najun 1ka
+craftmanw,àÍç∆ìﬂèá
+id,round_and_round
+craftmanurl,http://ichika-najun.hp.infoseek.co.jp/
+sakura.balloon.alignment,none
+kero.balloon.alignment,none
+shiori.logo.x,0
+shiori.logo.y,0
+sakura.balloon.offsetx,45
+sakura.balloon.offsety,100
+kero.balloon.offsetx,0
+kero.balloon.offsety,10
+menu.background.bitmap.filename,menu_background.png
+menu.foreground.bitmap.filename,menu_foreground.png
+menu.sidebar.bitmap.filename,menu_sidebar.png
+menu.background.font.color.r,86
+menu.background.font.color.g,108
+menu.background.font.color.b,86
+menu.foreground.font.color.r,150
+menu.foreground.font.color.g,110
+menu.foreground.font.color.b,80
+menu.disable.font.color.r,160
+menu.disable.font.color.g,160
+menu.disable.font.color.b,160
+menu.separator.color.r,207
+menu.separator.color.g,187
+menu.separator.color.b,179
+menu.background.alignment,lefttop
+menu.foreground.alignment,lefttop
+menu.sidebar.alignment,top
