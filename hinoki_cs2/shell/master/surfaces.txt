@@ -2,6 +2,11 @@
 // surface*ÇÃ*ÇÃ1åÖñ⁄Ç™0(Ç»Çµ)-âƒÅA2-èHÅA3-ì~ÅA4-èt
 // Ç»ÇÒÇ≈ètâƒèHì~Ç∂Ç·Ç»Ç≠Ç¡ÇƒâƒèHì~ètÇ©Ç∆Ç¢Ç§Ç∆ÇªÇÍÇÕÇ®é@Çµâ∫Ç≥Ç¢
 
+descript
+{
+version,0
+}
+
 // âƒ
 
 surface0
@@ -1079,7 +1084,7 @@ point.kinoko.centery,103
 
 surface100
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,2000,0,base,0,0
 0pattern1,2001,9,base,0,0
@@ -1091,7 +1096,7 @@ surface100
 
 surface102
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,2000,0,base,0,0
 0pattern1,2001,9,base,0,0
@@ -1103,7 +1108,7 @@ surface102
 
 surface103
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,2000,0,base,0,0
 0pattern1,2001,9,base,0,0
@@ -1115,7 +1120,7 @@ surface103
 
 surface104
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,2000,0,base,0,0
 0pattern1,2001,2,base,0,0
@@ -1127,7 +1132,7 @@ surface104
 
 surface105
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,2000,0,base,0,0
 0pattern1,2001,2,base,0,0
@@ -1141,7 +1146,7 @@ surface105
 
 surface200
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,3000,0,base,0,0
 0pattern1,3001,9,base,0,0
@@ -1153,7 +1158,7 @@ surface200
 
 surface202
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,3000,0,base,0,0
 0pattern1,3001,9,base,0,0
@@ -1165,7 +1170,7 @@ surface202
 
 surface203
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,3000,0,base,0,0
 0pattern1,3001,9,base,0,0
@@ -1177,7 +1182,7 @@ surface203
 
 surface204
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,3000,0,base,0,0
 0pattern1,3001,2,base,0,0
@@ -1189,7 +1194,7 @@ surface204
 
 surface205
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,3000,0,base,0,0
 0pattern1,3001,2,base,0,0
@@ -1203,7 +1208,7 @@ surface205
 
 surface300
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,2003,0,base,0,0
 0pattern1,2002,5,base,0,0
@@ -1216,7 +1221,7 @@ surface300
 
 surface400
 {
-0option,exclusive
+//0option,exclusive
 0interval,runonce
 0pattern0,3003,0,base,0,0
 0pattern1,3002,5,base,0,0
