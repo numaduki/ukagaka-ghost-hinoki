@@ -252,42 +252,44 @@ CleanAppliList2
 
 ShowGhostInfo
 {
-		"\0\s[6]\b[2]\_qひのき %(CHR(34))the ChopSticks%(CHR(34))\ncopyr.2003-2004 水屑\nwww：\_q\q[http://www3.to/nft/,http://www3.to/nft/]\n/
+		"\0\s[6]\b[2]\_qひのき %(CHR(34))the ChopSticks%(CHR(34))\n(C)2003-2020 沼月\n\_q\q[https://nu.skr.jp/,https://nu.skr.jp/]\n/
+		\_q/
 		\n/
-		\_qユーザー名：%(On_username)\_q\n/
+		ユーザー名：%(On_username)\n/
 		\n/
-		\_q使用素材の情報（作者敬称略）\_q\n/
+		使用素材の情報（作者敬称略）\n/
 		\n/
-		\_qShell『Round And Round』\n/
+		Shell『Round And Round』\n/
 		名称：割り箸\n/
-		作者：一哉那順（改変は水屑による）\n/
-		www：\_q\q[http://ichika-najun.hp.infoseek.co.jp/,http://ichika-najun.hp.infoseek.co.jp/]\n/
+		作者：一哉那順（改変は沼月による）\n/
 		\n/
-		\_qSHIORI『汎用DLL「文」』\n/
+		SHIORI『汎用DLL「文」』\n/
 		名称：%(On_name) ver%(On_version)\n/
 		作者：%(On_craftman)\n/
-		www：\_q\q[http://members.jcom.home.ne.jp/umeici/,http://members.jcom.home.ne.jp/umeici/]\n/
+		\_q/
+		\q[http://umeici.onjn.jp/,http://umeici.onjn.jp/]/
+		\_q\n/
 		\n/
-		\_qSAORI『edittext.dll』\n/
+		SAORI『edittext.dll』\n/
 		名称：edittext.dll ver1.1.1\n/
 		作者：SatisKia\n/
-		www：\_q\q[http://www5d.biglobe.ne.jp/~satis/,http://www5d.biglobe.ne.jp/~satis/]\n/
 		\n/
-		\_qSAORI『exec.dll』\n/
+		SAORI『exec.dll』\n/
 		名称：exec.dll ver1.4\n/
 		作者：りゅう\n/
-		www：\_q\q[http://www10.plala.or.jp/sryu/,http://www10.plala.or.jp/sryu/]\n/
 		\n/
-		\_qSAORI『MCIAudioR』\n/
+		SAORI『MCIAudioR』\n/
 		名称：MCIAudioR construction22\n/
 		作者：umeici\n/
-		www：\_q\q[http://members.jcom.home.ne.jp/umeici/,http://members.jcom.home.ne.jp/umeici/]\n/
+		\_q/
+		\q[http://umeici.onjn.jp/,http://umeici.onjn.jp/]/
+		\_q\n/
 		\n/
-		\_qSAORI『saori_cpuid.dll』\n/
+		SAORI『saori_cpuid.dll』\n/
 		名称：saori_cpuid.dll ver1.0.5\n/
 		作者：七瀬いーうぃ\n/
-		www：\_q\q[http://www.himawari-c.com/,http://www.himawari-c.com/]\n/
-		\n\q[閉じる,CloseGhostInfo]\n/
+		\n\_q/
+		\q[閉じる,CloseGhostInfo]\n/
 		\e"
 }
 

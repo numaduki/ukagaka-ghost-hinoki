@@ -80,8 +80,8 @@ On_recommendrootbutton.caption
 On_sakura.recommendsites
 {
 	"/
-	環境基本法%ASC(1)http://law.e-gov.go.jp/htmldata/H05/H05HO091.html%ASC(2)/
-	環境省%ASC(1)http://www.env.go.jp/%ASC(2)/
+	環境基本法%ASC(1)https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=405AC0000000091&openerCode=1%ASC(2)/
+	環境省%ASC(1)https://www.env.go.jp/%ASC(2)/
 	"
 }
 
@@ -101,18 +101,11 @@ On_portalrootbutton.caption
 On_sakura.portalsites
 {
 	"/
-	うさださくら%ASC(1)http://usada.sakura.vg/%ASC(1)http://sakura.mikage.to/banner.png/%ASC(2)/
+	うさださくら%ASC(1)http://usada.sakura.vg/%ASC(2)/
 	C.R.O.W. official page%ASC(1)http://crow.aqrs.jp/%ASC(2)/
 	SSP BUGTRAQ%ASC(1)http://ssp.shillest.net/%ASC(2)/
 	-%ASC(2)/
-	青息吐息%ASC(1)http://ichika-najun.hp.infoseek.co.jp/%ASC(2)/
-	-%ASC(2)/
-	:::et cetera.%ASC(1)http://umeici.hp.infoseek.co.jp/etcetera/%ASC(2)/
-	-%ASC(2)/
-	StarLight Stream%ASC(1)http://ryu.4th.to/%ASC(2)/
-	Himawari Company%ASC(1)http://www.himawari-c.com/%ASC(2)/
-	-%ASC(2)/
-	as a cradle / as an epitaph%ASC(1)http://www3.to/nft/%ASC(2)/
+	numaduki%ASC(1)https://nu.skr.jp/%ASC(2)/
 	"
 }
 
