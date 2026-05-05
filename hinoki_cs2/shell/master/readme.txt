@@ -1,14 +1,6 @@
-
-
-
-
 Round And Round
-OriginalFreeShell "Waribashi" copyr.Najun Ichika all rights reserved.
 
-
-・使用に際して、シェルを一部改変しております（水屑による）
-・フリーシェル配布先『青息吐息』 http://ichika-najun.hp.infoseek.co.jp/
-・ゴースト配布先 http://www3.to/nft/
-
-
+- 一哉那順氏のフリーシェル「割り箸」を一部改変して使用しています
+  フリーシェル配布先: 青息吐息（ウェブサイト閉鎖済み、公開終了）
+- ゴースト配布先: https://num.static.jp/
 
