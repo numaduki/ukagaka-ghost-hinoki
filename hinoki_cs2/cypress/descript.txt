@@ -3,9 +3,9 @@ type,balloon
 name,cypress
 id,cypress
 
-craftman,Mikuzu
-craftmanw,Mikuzu
-craftmanurl,http://nft.hp.infoseek.co.jp/
+craftman,Numaduki
+craftmanw,Numaduki
+craftmanurl,https://num.static.jp/
 
 origin.x,12
 origin.y,10

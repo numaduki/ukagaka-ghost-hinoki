@@ -1,9 +1,5 @@
-
 cypress
-copyr.2003-2004 水屑 all rights reserved.
+Copyright 2003-2026 沼月 all rights reserved.
 
-
-・再生紙を使用しています
-・燃やしても有害なガスが出ません
-
-
+- 再生紙を使用しています
+- 燃やしても有害なガスが出ません
