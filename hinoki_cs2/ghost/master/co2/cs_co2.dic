@@ -252,7 +252,7 @@ CleanAppliList2
 
 ShowGhostInfo
 {
-		"\0\s[6]\b[2]\_qひのき %(CHR(34))the ChopSticks%(CHR(34))\n(C)2003-2020 沼月\n\_q\q[https://nu.skr.jp/,https://nu.skr.jp/]\n/
+		"\0\s[6]\b[2]\_qひのき %(CHR(34))the ChopSticks%(CHR(34))\n(C)2003-2026 沼月\n\_q\q[https://num.static.jp/,https://num.static.jp/]\n/
 		\_q/
 		\n/
 		ユーザー名：%(On_username)\n/
